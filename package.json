@@ -1,0 +1,31 @@
+{
+  "name": "etl-research",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "case1": "tsx src/index.ts --case=1",
+    "case2": "tsx src/index.ts --case=2",
+    "case3": "tsx src/index.ts --case=3",
+    "case4": "tsx src/index.ts --case=4a",
+    "deploy-worker": "wrangler deploy"
+  },
+  "dependencies": {
+    "axios": "^1.6.2",
+    "csv-parser": "^3.0.0",
+    "csv-writer": "^1.6.0",
+    "dotenv": "^16.3.1",
+    "p-queue": "^7.4.1",
+    "pg": "^8.11.3",
+    "pg-copy-streams": "^6.0.6",
+    "uuid": "^9.0.1",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "@types/pg": "^8.10.9",
+    "@types/pg-copy-streams": "^1.2.5",
+    "tsx": "^4.6.2",
+    "typescript": "^5.3.3",
+    "wrangler": "^3.22.1"
+  }
+}
