@@ -143,8 +143,16 @@ export class Case2Bulk {
     const client = await targetPool.connect();
     
     try {
+      await client.query('BEGIN');
+
+      // Load into a temporary staging table to enable ON CONFLICT upsert
+      await client.query(`
+        CREATE TEMP TABLE tmp_transformed_users AS
+        SELECT * FROM transformed_users WITH NO DATA;
+      `);
+
       const stream = client.query(copyFrom.from(`
-        COPY transformed_users (
+        COPY tmp_transformed_users (
           user_id, username, reputation_score, reputation_tier, reputation_percentile,
           registered_at, last_login, account_age_days, activity_status, is_active, is_veteran,
           location_original, location_country, location_city, location_normalized,
@@ -156,13 +164,37 @@ export class Case2Bulk {
       `));
 
       const fileStream = fs.createReadStream(filePath);
-      
       await new Promise((resolve, reject) => {
         fileStream.on('error', reject);
         stream.on('error', reject);
         stream.on('finish', resolve);
         fileStream.pipe(stream);
       });
+
+      // Upsert from staging into target
+      await client.query(`
+        INSERT INTO transformed_users AS t (
+          user_id, username, reputation_score, reputation_tier, reputation_percentile,
+          registered_at, last_login, account_age_days, activity_status, is_active, is_veteran,
+          location_original, location_country, location_city, location_normalized,
+          bio_original, bio_summary, bio_wordcount, bio_has_content,
+          website_url, website_domain, website_valid,
+          profile_views, positive_votes, negative_votes, vote_ratio, engagement_score,
+          metadata, etl_timestamp, etl_case_number, etl_batch_id
+        )
+        SELECT 
+          user_id, username, reputation_score, reputation_tier, reputation_percentile,
+          registered_at, last_login, account_age_days, activity_status, is_active, is_veteran,
+          location_original, location_country, location_city, location_normalized,
+          bio_original, bio_summary, bio_wordcount, bio_has_content,
+          website_url, website_domain, website_valid,
+          profile_views, positive_votes, negative_votes, vote_ratio, engagement_score,
+          metadata, etl_timestamp, etl_case_number, etl_batch_id
+        FROM tmp_transformed_users
+        ON CONFLICT (user_id, etl_case_number) DO NOTHING;
+      `);
+
+      await client.query('COMMIT');
       
     } finally {
       client.release();

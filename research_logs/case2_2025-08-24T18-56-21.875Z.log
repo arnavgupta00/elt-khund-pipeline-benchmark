@@ -1,0 +1,7 @@
+{"level":"info","memory_mb":13.969100952148438,"message":"Phase started: Export","phase":"Export","timestamp":65}
+{"duration_ms":2568,"level":"info","memory_mb":315.86051177978516,"message":"Phase completed: Export","phase":"Export","records":650000,"timestamp":"2025-08-24T18:56:24.459Z"}
+{"level":"info","memory_mb":315.9087371826172,"message":"Phase started: Transform","phase":"Transform","timestamp":2569}
+{"duration_ms":11744,"level":"info","memory_mb":2329.1034622192383,"message":"Phase completed: Transform","phase":"Transform","records":650000,"timestamp":"2025-08-24T18:56:33.635Z"}
+{"level":"info","memory_mb":2329.123519897461,"message":"Phase started: Load","phase":"Load","timestamp":11745}
+{"duration_ms":23918,"level":"info","memory_mb":2324.7994537353516,"message":"Phase completed: Load","phase":"Load","records":650000,"timestamp":"2025-08-24T18:56:45.809Z"}
+{"cpu_seconds":"16.31","error_count":0,"level":"info","memory_peak_mb":"2687.93","message":"ETL Process Completed","records_per_second":"27139.87","timestamp":"2025-08-24T18:56:45.841Z","total_duration_seconds":"23.95","total_records":650000}

@@ -1,9 +1,3 @@
-// Cloudflare Worker for Case 4a Edge Processing
-// Deploy this using: wrangler deploy
-
-export interface Env {
-  // Add any environment bindings here
-}
 
 interface SourceUser {
   Id: number;
@@ -54,15 +48,7 @@ interface TransformedUser {
 }
 
 export default {
-  async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
-    // Verify authorization
-    const authHeader = request.headers.get('Authorization');
-    const expectedToken = env.WORKER_TOKEN || 'default-token';
-    
-    if (!authHeader || authHeader !== `Bearer ${expectedToken}`) {
-      return new Response('Unauthorized', { status: 401 });
-    }
-
+  async fetch(request, env, ctx): Promise<Response> {
     if (request.method !== 'POST') {
       return new Response('Method not allowed', { status: 405 });
     }
@@ -83,14 +69,14 @@ export default {
     } catch (error) {
       return new Response(JSON.stringify({ 
         error: 'Processing failed',
-        message: error.message 
+        message: (error as any)?.message || String(error)
       }), { 
         status: 500,
         headers: { 'Content-Type': 'application/json' }
       });
     }
   }
-};
+} satisfies ExportedHandler<Env>;
 
 function transformUser(source: SourceUser, caseNumber: number): TransformedUser {
   const now = new Date();
@@ -235,3 +221,9 @@ function calculateEngagementScore(user: SourceUser): number {
   const views = Math.max(user.Views, 1);
   return Number((totalVotes / views).toFixed(6));
 }
+
+// export default {
+// 	async fetch(request, env, ctx): Promise<Response> {
+// 		return new Response('Hello World!');
+// 	},
+// } satisfies ExportedHandler<Env>;

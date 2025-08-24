@@ -56,6 +56,7 @@ export interface TransformedUser {
 }
 
 export interface PerformanceMetrics {
+  avg_response_time: number;
   case_number: number;
   case_name: string;
   start_time: Date;

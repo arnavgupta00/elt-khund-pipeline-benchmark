@@ -1,0 +1,620 @@
+{
+  "case_number": 4,
+  "case_name": "Edge Computing (Cloudflare Workers)",
+  "start_time": "2025-08-24T21:11:48.235Z",
+  "memory_start_mb": 13.844490051269531,
+  "detailed_timings": [
+    {
+      "phase": "Batch Timing Summary (offset=231000, limit=6600) | extract=976ms, worker=7136ms, insert=1807ms, total=9919ms | max=worker",
+      "duration_ms": 10068,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:11:58.304Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=237600, limit=6600) | extract=1041ms, worker=6863ms, insert=2541ms, total=10445ms | max=worker",
+      "duration_ms": 10593,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:11:58.828Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=184800, limit=6600) | extract=560ms, worker=11747ms, insert=1626ms, total=13933ms | max=worker",
+      "duration_ms": 14081,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:02.316Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=211200, limit=6600) | extract=789ms, worker=15316ms, insert=1618ms, total=17723ms | max=worker",
+      "duration_ms": 17871,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:06.106Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=191400, limit=6600) | extract=630ms, worker=15639ms, insert=1626ms, total=17895ms | max=worker",
+      "duration_ms": 18042,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:06.278Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=198000, limit=6600) | extract=685ms, worker=16531ms, insert=1626ms, total=18842ms | max=worker",
+      "duration_ms": 18990,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:07.225Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=145200, limit=6600) | extract=223ms, worker=17318ms, insert=1435ms, total=18976ms | max=worker",
+      "duration_ms": 19124,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:07.359Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=633600, limit=6600) | extract=5826ms, worker=11668ms, insert=1562ms, total=19056ms | max=worker",
+      "duration_ms": 19204,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:07.439Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=646800, limit=3200) | extract=5910ms, worker=12286ms, insert=1053ms, total=19249ms | max=worker",
+      "duration_ms": 19397,
+      "records": 3200,
+      "timestamp": "2025-08-24T21:12:07.632Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=303600, limit=6600) | extract=1596ms, worker=17179ms, insert=1297ms, total=20072ms | max=worker",
+      "duration_ms": 20220,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:08.455Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=283800, limit=6600) | extract=1405ms, worker=17080ms, insert=1778ms, total=20263ms | max=worker",
+      "duration_ms": 20410,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:08.646Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=105600, limit=6600) | extract=2467ms, worker=17881ms, insert=1248ms, total=21596ms | max=worker",
+      "duration_ms": 21743,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:09.979Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=59400, limit=6600) | extract=2084ms, worker=18213ms, insert=1941ms, total=22238ms | max=worker",
+      "duration_ms": 22386,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:10.621Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=26400, limit=6600) | extract=1756ms, worker=19384ms, insert=1569ms, total=22709ms | max=worker",
+      "duration_ms": 22856,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:11.092Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=52800, limit=6600) | extract=2034ms, worker=19644ms, insert=1690ms, total=23368ms | max=worker",
+      "duration_ms": 23515,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:11.751Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=224400, limit=6600) | extract=890ms, worker=21027ms, insert=1724ms, total=23641ms | max=worker",
+      "duration_ms": 23788,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:12.023Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=323400, limit=6600) | extract=2777ms, worker=18326ms, insert=2569ms, total=23672ms | max=worker",
+      "duration_ms": 23819,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:12.054Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=435600, limit=6600) | extract=3990ms, worker=17894ms, insert=1914ms, total=23798ms | max=worker",
+      "duration_ms": 23945,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:12.181Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=132000, limit=6600) | extract=125ms, worker=22699ms, insert=1503ms, total=24327ms | max=worker",
+      "duration_ms": 24474,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:12.709Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=138600, limit=6600) | extract=174ms, worker=23100ms, insert=1436ms, total=24710ms | max=worker",
+      "duration_ms": 24857,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:13.092Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=39600, limit=6600) | extract=1870ms, worker=21693ms, insert=1313ms, total=24876ms | max=worker",
+      "duration_ms": 25024,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:13.259Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=382800, limit=6600) | extract=3628ms, worker=19262ms, insert=2542ms, total=25432ms | max=worker",
+      "duration_ms": 25579,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:13.814Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=448800, limit=6600) | extract=4116ms, worker=20582ms, insert=1569ms, total=26267ms | max=worker",
+      "duration_ms": 26414,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:14.649Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=514800, limit=6600) | extract=4729ms, worker=20336ms, insert=1313ms, total=26378ms | max=worker",
+      "duration_ms": 26525,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:14.760Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=528000, limit=6600) | extract=4853ms, worker=20497ms, insert=1287ms, total=26637ms | max=worker",
+      "duration_ms": 26785,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:15.020Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=0, limit=6600) | extract=38ms, worker=25843ms, insert=2171ms, total=28052ms | max=worker",
+      "duration_ms": 28199,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:16.434Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=85800, limit=6600) | extract=2293ms, worker=24004ms, insert=2050ms, total=28347ms | max=worker",
+      "duration_ms": 28494,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:16.730Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=607200, limit=6600) | extract=5595ms, worker=21375ms, insert=1628ms, total=28598ms | max=worker",
+      "duration_ms": 28746,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:16.981Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=297000, limit=6600) | extract=1507ms, worker=25642ms, insert=2147ms, total=29296ms | max=worker",
+      "duration_ms": 29444,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:17.679Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=99000, limit=6600) | extract=2418ms, worker=25085ms, insert=2128ms, total=29631ms | max=worker",
+      "duration_ms": 29779,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:18.014Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=171600, limit=6600) | extract=426ms, worker=27291ms, insert=2168ms, total=29885ms | max=worker",
+      "duration_ms": 30032,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:18.267Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=356400, limit=6600) | extract=3034ms, worker=25367ms, insert=2101ms, total=30502ms | max=worker",
+      "duration_ms": 30650,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:18.885Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=415800, limit=6600) | extract=3839ms, worker=24287ms, insert=2398ms, total=30524ms | max=worker",
+      "duration_ms": 30671,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:18.907Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=429000, limit=6600) | extract=3944ms, worker=24261ms, insert=2376ms, total=30581ms | max=worker",
+      "duration_ms": 30728,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:18.964Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=13200, limit=6600) | extract=1701ms, worker=28143ms, insert=2906ms, total=32750ms | max=worker",
+      "duration_ms": 32897,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:21.133Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=376200, limit=6600) | extract=3574ms, worker=26099ms, insert=3233ms, total=32906ms | max=worker",
+      "duration_ms": 33053,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:21.288Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=640200, limit=6600) | extract=5874ms, worker=24576ms, insert=3413ms, total=33863ms | max=worker",
+      "duration_ms": 34010,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:22.245Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=468600, limit=6600) | extract=4303ms, worker=25953ms, insert=3896ms, total=34152ms | max=worker",
+      "duration_ms": 34299,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:22.534Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=574200, limit=6600) | extract=5289ms, worker=23295ms, insert=5586ms, total=34170ms | max=worker",
+      "duration_ms": 34317,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:22.552Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=72600, limit=6600) | extract=2185ms, worker=28610ms, insert=5326ms, total=36121ms | max=worker",
+      "duration_ms": 36269,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:24.504Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=6600, limit=6600) | extract=1648ms, worker=29579ms, insert=5216ms, total=36443ms | max=worker",
+      "duration_ms": 36590,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:24.826Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=349800, limit=6600) | extract=2983ms, worker=27973ms, insert=5693ms, total=36649ms | max=worker",
+      "duration_ms": 36796,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:25.032Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=402600, limit=6600) | extract=3733ms, worker=27526ms, insert=5536ms, total=36795ms | max=worker",
+      "duration_ms": 36943,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:25.178Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=508200, limit=6600) | extract=4661ms, worker=26801ms, insert=5518ms, total=36980ms | max=worker",
+      "duration_ms": 37128,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:25.363Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=547800, limit=6600) | extract=5050ms, worker=26468ms, insert=5618ms, total=37136ms | max=worker",
+      "duration_ms": 37283,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:25.519Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=277200, limit=6600) | extract=1352ms, worker=29754ms, insert=6037ms, total=37143ms | max=worker",
+      "duration_ms": 37290,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:25.525Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=92400, limit=6600) | extract=2370ms, worker=29331ms, insert=5843ms, total=37544ms | max=worker",
+      "duration_ms": 37692,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:25.927Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=488400, limit=6600) | extract=4468ms, worker=27378ms, insert=5894ms, total=37740ms | max=worker",
+      "duration_ms": 37887,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:26.122Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=442200, limit=6600) | extract=4048ms, worker=27879ms, insert=5962ms, total=37889ms | max=worker",
+      "duration_ms": 38036,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:26.271Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=310200, limit=6600) | extract=2672ms, worker=29790ms, insert=6523ms, total=38985ms | max=worker",
+      "duration_ms": 39133,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:27.368Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=541200, limit=6600) | extract=4981ms, worker=27558ms, insert=6492ms, total=39031ms | max=worker",
+      "duration_ms": 39178,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:27.414Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=46200, limit=6600) | extract=1981ms, worker=31205ms, insert=6387ms, total=39573ms | max=worker",
+      "duration_ms": 39721,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:27.956Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=270600, limit=6600) | extract=1301ms, worker=31752ms, insert=7026ms, total=40079ms | max=worker",
+      "duration_ms": 40227,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:28.462Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=627000, limit=6600) | extract=5771ms, worker=27349ms, insert=7209ms, total=40329ms | max=worker",
+      "duration_ms": 40476,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:28.711Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=244200, limit=6600) | extract=1099ms, worker=32269ms, insert=7358ms, total=40726ms | max=worker",
+      "duration_ms": 40873,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:29.109Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=521400, limit=6600) | extract=4786ms, worker=29057ms, insert=6929ms, total=40772ms | max=worker",
+      "duration_ms": 40921,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:29.156Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=389400, limit=6600) | extract=3681ms, worker=29929ms, insert=7404ms, total=41014ms | max=worker",
+      "duration_ms": 41162,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:29.397Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=369600, limit=6600) | extract=3507ms, worker=30491ms, insert=8457ms, total=42455ms | max=worker",
+      "duration_ms": 42603,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:30.838Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=409200, limit=6600) | extract=3787ms, worker=30256ms, insert=8452ms, total=42495ms | max=worker",
+      "duration_ms": 42642,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:30.878Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=19800, limit=6600) | extract=1813ms, worker=33227ms, insert=7528ms, total=42568ms | max=worker",
+      "duration_ms": 42716,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:30.951Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=118800, limit=6600) | extract=2568ms, worker=31806ms, insert=8357ms, total=42731ms | max=worker",
+      "duration_ms": 42878,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:31.114Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=66000, limit=6600) | extract=2136ms, worker=32978ms, insert=7718ms, total=42832ms | max=worker",
+      "duration_ms": 42979,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:31.215Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=217800, limit=6600) | extract=841ms, worker=34242ms, insert=7853ms, total=42936ms | max=worker",
+      "duration_ms": 43084,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:31.319Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=330000, limit=6600) | extract=2829ms, worker=32414ms, insert=7820ms, total=43063ms | max=worker",
+      "duration_ms": 43211,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:31.446Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=594000, limit=6600) | extract=5489ms, worker=29792ms, insert=7872ms, total=43153ms | max=worker",
+      "duration_ms": 43300,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:31.535Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=250800, limit=6600) | extract=1149ms, worker=34406ms, insert=7676ms, total=43231ms | max=worker",
+      "duration_ms": 43379,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:31.614Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=343200, limit=6600) | extract=2935ms, worker=32785ms, insert=8320ms, total=44040ms | max=worker",
+      "duration_ms": 44188,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:32.423Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=178200, limit=6600) | extract=479ms, worker=35134ms, insert=8589ms, total=44202ms | max=worker",
+      "duration_ms": 44349,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:32.584Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=495000, limit=6600) | extract=4524ms, worker=30627ms, insert=9173ms, total=44324ms | max=worker",
+      "duration_ms": 44471,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:32.706Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=613800, limit=6600) | extract=5647ms, worker=30237ms, insert=8862ms, total=44746ms | max=worker",
+      "duration_ms": 44894,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:33.129Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=481800, limit=6600) | extract=4409ms, worker=31543ms, insert=9348ms, total=45300ms | max=worker",
+      "duration_ms": 45447,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:33.683Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=290400, limit=6600) | extract=1459ms, worker=34750ms, insert=9341ms, total=45550ms | max=worker",
+      "duration_ms": 45697,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:33.933Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=33000, limit=6600) | extract=1926ms, worker=34335ms, insert=9610ms, total=45871ms | max=worker",
+      "duration_ms": 46018,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:34.254Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=204600, limit=6600) | extract=741ms, worker=35580ms, insert=9607ms, total=45928ms | max=worker",
+      "duration_ms": 46076,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:34.311Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=561000, limit=6600) | extract=5185ms, worker=31394ms, insert=9576ms, total=46155ms | max=worker",
+      "duration_ms": 46302,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:34.537Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=125400, limit=6600) | extract=2622ms, worker=34438ms, insert=10561ms, total=47621ms | max=worker",
+      "duration_ms": 47768,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:36.003Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=257400, limit=6600) | extract=1198ms, worker=35650ms, insert=10877ms, total=47725ms | max=worker",
+      "duration_ms": 47872,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:36.108Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=151800, limit=6600) | extract=273ms, worker=36833ms, insert=10751ms, total=47857ms | max=worker",
+      "duration_ms": 48005,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:36.240Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=567600, limit=6600) | extract=5236ms, worker=31955ms, insert=10688ms, total=47879ms | max=worker",
+      "duration_ms": 48026,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:36.262Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=316800, limit=6600) | extract=2721ms, worker=34692ms, insert=10524ms, total=47937ms | max=worker",
+      "duration_ms": 48084,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:36.319Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=475200, limit=6600) | extract=4355ms, worker=33275ms, insert=10521ms, total=48151ms | max=worker",
+      "duration_ms": 48298,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:36.533Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=620400, limit=6600) | extract=5706ms, worker=31809ms, insert=10702ms, total=48217ms | max=worker",
+      "duration_ms": 48364,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:36.599Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=264000, limit=6600) | extract=1246ms, worker=36414ms, insert=10565ms, total=48225ms | max=worker",
+      "duration_ms": 48372,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:36.607Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=158400, limit=6600) | extract=324ms, worker=37389ms, insert=10573ms, total=48286ms | max=worker",
+      "duration_ms": 48433,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:36.668Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=501600, limit=6600) | extract=4599ms, worker=33272ms, insert=11117ms, total=48988ms | max=worker",
+      "duration_ms": 49136,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:37.371Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=422400, limit=6600) | extract=3891ms, worker=33935ms, insert=11206ms, total=49032ms | max=worker",
+      "duration_ms": 49180,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:37.415Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=554400, limit=6600) | extract=5132ms, worker=32784ms, insert=11174ms, total=49090ms | max=worker",
+      "duration_ms": 49238,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:37.473Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=396000, limit=6600) | extract=3082ms, worker=34872ms, insert=11394ms, total=49348ms | max=worker",
+      "duration_ms": 49496,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:37.731Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=462000, limit=6600) | extract=4242ms, worker=33750ms, insert=11629ms, total=49621ms | max=worker",
+      "duration_ms": 49768,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:38.003Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=455400, limit=6600) | extract=4173ms, worker=33850ms, insert=11717ms, total=49740ms | max=worker",
+      "duration_ms": 49887,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:38.123Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=112200, limit=6600) | extract=2516ms, worker=35568ms, insert=11818ms, total=49902ms | max=worker",
+      "duration_ms": 50050,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:38.285Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=534600, limit=6600) | extract=4918ms, worker=33424ms, insert=11577ms, total=49919ms | max=worker",
+      "duration_ms": 50066,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:38.301Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=600600, limit=6600) | extract=5545ms, worker=32837ms, insert=11625ms, total=50007ms | max=worker",
+      "duration_ms": 50155,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:38.390Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=165000, limit=6600) | extract=378ms, worker=38074ms, insert=12055ms, total=50507ms | max=worker",
+      "duration_ms": 50655,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:38.890Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=587400, limit=6600) | extract=5411ms, worker=33128ms, insert=12003ms, total=50542ms | max=worker",
+      "duration_ms": 50690,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:38.925Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=79200, limit=6600) | extract=2238ms, worker=37681ms, insert=10678ms, total=50597ms | max=worker",
+      "duration_ms": 50744,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:38.979Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=580800, limit=6600) | extract=5354ms, worker=35305ms, insert=9961ms, total=50620ms | max=worker",
+      "duration_ms": 50767,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:39.003Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=363000, limit=6600) | extract=3451ms, worker=38634ms, insert=8563ms, total=50648ms | max=worker",
+      "duration_ms": 50795,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:39.030Z"
+    },
+    {
+      "phase": "Batch Timing Summary (offset=336600, limit=6600) | extract=2883ms, worker=41651ms, insert=6206ms, total=50740ms | max=worker",
+      "duration_ms": 50887,
+      "records": 6600,
+      "timestamp": "2025-08-24T21:12:39.122Z"
+    },
+    {
+      "phase": "Edge Processing",
+      "duration_ms": 50888,
+      "records": 650000,
+      "timestamp": "2025-08-24T21:12:39.123Z"
+    }
+  ],
+  "end_time": "2025-08-24T21:12:39.123Z",
+  "total_duration_ms": 50888,
+  "total_records": 650000,
+  "records_per_second": 12773.1488759629,
+  "memory_peak_mb": 793.0956497192383,
+  "memory_end_mb": 55.162994384765625,
+  "cpu_user_ms": 51015,
+  "cpu_system_ms": 12563,
+  "error_count": 0,
+  "extract_duration_ms": 3637604,
+  "transform_duration_ms": 0,
+  "load_duration_ms": 0
+}

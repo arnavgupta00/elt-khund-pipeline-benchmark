@@ -4,6 +4,13 @@ import * as path from 'path';
 import { PerformanceMetrics } from './types';
 
 export class ResearchLogger {
+  logBatchStart(offset: number, limit: number) {
+    this.logger.info(`Batch started`, {
+      offset,
+      limit,
+      timestamp: Date.now() - this.startTime
+    });
+  }
   private logger: winston.Logger;
   private metricsFile: string;
   private startTime: number;

@@ -1,0 +1,5 @@
+{"level":"info","memory_mb":14.422592163085938,"message":"Phase started: Edge Processing","phase":"Edge Processing","timestamp":227}
+{"current":500000,"eta_seconds":"13","level":"info","memory_mb":108.5609130859375,"message":"Progress: Edge Processing","percentage":"76.92%","rate_per_second":"11692.90","timestamp":"2025-08-24T21:01:41.438Z","total":650000}
+{"current":650000,"eta_seconds":"0","level":"info","memory_mb":96.17628479003906,"message":"Progress: Edge Processing","percentage":"100.00%","rate_per_second":"11912.18","timestamp":"2025-08-24T21:01:53.244Z","total":650000}
+{"duration_ms":54568,"level":"info","memory_mb":96.23590087890625,"message":"Phase completed: Edge Processing","phase":"Edge Processing","records":650000,"timestamp":"2025-08-24T21:01:53.246Z"}
+{"cpu_seconds":"53.63","error_count":0,"level":"info","memory_peak_mb":"595.01","message":"ETL Process Completed","records_per_second":"11911.52","timestamp":"2025-08-24T21:01:53.248Z","total_duration_seconds":"54.57","total_records":650000}

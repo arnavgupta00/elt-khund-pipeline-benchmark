@@ -1,0 +1,3 @@
+{"level":"info","memory_mb":14.427597045898438,"message":"Phase started: Edge Processing","phase":"Edge Processing","timestamp":358}
+{"level":"info","memory_mb":816.2798004150391,"message":"Phase started: Batch Timing Summary (offset=600000, limit=50000)","phase":"Batch Timing Summary (offset=600000, limit=50000)","timestamp":34113}
+{"duration_ms":34116,"level":"info","memory_mb":816.336784362793,"message":"Phase completed: Batch Timing Summary (offset=600000, limit=50000) | extract=2461ms, worker=20576ms, insert=10716ms, total=33753ms | max=worker","phase":"Batch Timing Summary (offset=600000, limit=50000) | extract=2461ms, worker=20576ms, insert=10716ms, total=33753ms | max=worker","records":50000,"timestamp":"2025-08-24T21:10:15.720Z"}

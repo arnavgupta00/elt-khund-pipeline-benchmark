@@ -1,0 +1,6 @@
+{"level":"info","memory_mb":14.446235656738281,"message":"Phase started: Extract","phase":"Extract","timestamp":906}
+{"duration_ms":989,"level":"info","memory_mb":14.585823059082031,"message":"Phase completed: Count","phase":"Count","records":100,"timestamp":"2025-08-24T18:48:54.791Z"}
+{"level":"info","memory_mb":14.976051330566406,"message":"Phase started: Process","phase":"Process","timestamp":996}
+{"current":100,"eta_seconds":"0","level":"info","memory_mb":17.026214599609375,"message":"Progress: Processing","percentage":"100.00%","rate_per_second":"94.61","timestamp":"2025-08-24T18:48:54.859Z","total":100}
+{"duration_ms":1058,"level":"info","memory_mb":17.043563842773438,"message":"Phase completed: Process","phase":"Process","records":100,"timestamp":"2025-08-24T18:48:54.860Z"}
+{"cpu_seconds":"0.05","error_count":0,"level":"info","memory_peak_mb":"14.56","message":"ETL Process Completed","records_per_second":"94.52","timestamp":"2025-08-24T18:48:54.861Z","total_duration_seconds":"1.06","total_records":100}

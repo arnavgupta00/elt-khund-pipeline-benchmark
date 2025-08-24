@@ -1,0 +1,26 @@
+{
+  "case_number": 4,
+  "case_name": "Edge Computing (Cloudflare Workers)",
+  "start_time": "2025-08-24T20:30:57.413Z",
+  "memory_start_mb": 13.585716247558594,
+  "detailed_timings": [
+    {
+      "phase": "Edge Processing",
+      "duration_ms": 41345,
+      "records": 650000,
+      "timestamp": "2025-08-24T20:31:38.759Z"
+    }
+  ],
+  "end_time": "2025-08-24T20:31:38.759Z",
+  "total_duration_ms": 41346,
+  "total_records": 650000,
+  "records_per_second": 15720.988729260389,
+  "memory_peak_mb": 442.31790924072266,
+  "memory_end_mb": 82.48391723632812,
+  "cpu_user_ms": 38094,
+  "cpu_system_ms": 11547,
+  "error_count": 0,
+  "extract_duration_ms": 0,
+  "transform_duration_ms": 0,
+  "load_duration_ms": 0
+}

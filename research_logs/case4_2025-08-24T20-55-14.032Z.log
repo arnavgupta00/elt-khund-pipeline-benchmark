@@ -1,0 +1,10 @@
+{"level":"info","memory_mb":14.404808044433594,"message":"Phase started: Edge Processing","phase":"Edge Processing","timestamp":276}
+{"current":100000,"eta_seconds":"56","level":"info","memory_mb":60.80908966064453,"message":"Progress: Edge Processing","percentage":"15.38%","rate_per_second":"9849.31","timestamp":"2025-08-24T20:55:24.203Z","total":650000}
+{"current":200000,"eta_seconds":"45","level":"info","memory_mb":132.65117645263672,"message":"Progress: Edge Processing","percentage":"30.77%","rate_per_second":"9892.18","timestamp":"2025-08-24T20:55:34.267Z","total":650000}
+{"current":300000,"eta_seconds":"34","level":"info","memory_mb":120.8885726928711,"message":"Progress: Edge Processing","percentage":"46.15%","rate_per_second":"10402.58","timestamp":"2025-08-24T20:55:42.888Z","total":650000}
+{"current":400000,"eta_seconds":"23","level":"info","memory_mb":113.23643493652344,"message":"Progress: Edge Processing","percentage":"61.54%","rate_per_second":"10866.02","timestamp":"2025-08-24T20:55:50.861Z","total":650000}
+{"current":500000,"eta_seconds":"13","level":"info","memory_mb":78.6524429321289,"message":"Progress: Edge Processing","percentage":"76.92%","rate_per_second":"11118.77","timestamp":"2025-08-24T20:55:59.018Z","total":650000}
+{"current":600000,"eta_seconds":"4","level":"info","memory_mb":133.57219696044922,"message":"Progress: Edge Processing","percentage":"92.31%","rate_per_second":"11261.26","timestamp":"2025-08-24T20:56:07.330Z","total":650000}
+{"current":650000,"eta_seconds":"0","level":"info","memory_mb":95.20660400390625,"message":"Progress: Edge Processing","percentage":"100.00%","rate_per_second":"11102.19","timestamp":"2025-08-24T20:56:12.596Z","total":650000}
+{"duration_ms":58548,"level":"info","memory_mb":95.25257873535156,"message":"Phase completed: Edge Processing","phase":"Edge Processing","records":650000,"timestamp":"2025-08-24T20:56:12.597Z"}
+{"cpu_seconds":"49.77","error_count":0,"level":"info","memory_peak_mb":"235.40","message":"ETL Process Completed","records_per_second":"11102.00","timestamp":"2025-08-24T20:56:12.598Z","total_duration_seconds":"58.55","total_records":650000}
