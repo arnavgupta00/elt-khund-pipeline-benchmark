@@ -54,8 +54,19 @@ export default {
     }
 
     try {
-      const { users, caseNumber } = await request.json() as { users: SourceUser[], caseNumber: number };
-      
+      let text: string;
+      const enc = (request.headers.get('content-encoding') || '').toLowerCase();
+      if (enc.includes('gzip')) {
+        // @ts-ignore - DecompressionStream is available in Workers runtime
+        const ds = new DecompressionStream('gzip');
+        const decompressed = (request.body as ReadableStream).pipeThrough(ds);
+        text = await new Response(decompressed).text();
+      } else {
+        text = await request.text();
+      }
+
+      const { users, caseNumber } = JSON.parse(text) as { users: SourceUser[], caseNumber: number };
+
       const transformedUsers = users.map(user => transformUser(user, caseNumber));
       
       return new Response(JSON.stringify({ 
