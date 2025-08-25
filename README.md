@@ -68,11 +68,11 @@ This benchmark is valuable for:
 If you use this research in your work, please cite:
 
 ```
-@software{etl_performance_benchmark_2024,
-  author = {Your Name},
+@software{etl_performance_benchmark_2025,
+  author = Arnav,
   title = {ETL Performance Benchmark: A Comparative Study of Data Processing Architectures},
-  year = {2024},
-  url = {https://github.com/yourusername/etl-performance-benchmark}
+  year = 2025,
+  url = https://github.com/arnavgupta00/elt-khund-pipeline-benchmark/tree/main
 }
 ```
 
