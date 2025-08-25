@@ -7,6 +7,7 @@
     "case2": "tsx src/index.ts --case=2",
     "case3": "tsx src/index.ts --case=3",
     "case4": "tsx src/index.ts --case=4a",
+    "case5": "tsx src/index.ts --case=5",
     "deploy-worker": "wrangler deploy"
   },
   "dependencies": {
@@ -17,6 +18,8 @@
     "p-queue": "^7.4.1",
     "pg": "^8.11.3",
     "pg-copy-streams": "^6.0.6",
+    "pg-cursor": "^2.10.3",
+    "gpu.js": "^2.16.0",
     "uuid": "^9.0.1",
     "winston": "^3.11.0"
   },
