@@ -15,7 +15,7 @@ This project benchmarks four distinct ETL implementation strategies to analyze t
 
 ### Key Features
 
-* **Real-world Dataset**: Uses Stack Overflow's 5.6GB user dataset (\~3M records)
+* **Real-world Dataset**: Uses Stack Overflow's user dataset (~650K records for testing)
 * **Multiple Architectures**: Sequential, Bulk File, Multi-threaded Pipeline, and Edge Computing
 * **Comprehensive Metrics**: Detailed performance logging and analysis
 * **Production-Ready**: TypeScript implementation with proper error handling and logging
@@ -32,12 +32,14 @@ This project benchmarks four distinct ETL implementation strategies to analyze t
 
 ## 📈 Performance Results
 
-With **test dataset of \~650,000 records**:
+With **test dataset of ~650,000 records**:
 
-* **Sequential**: \~230s (≈2822 recs/sec)
-* **Bulk File Import**: \~27s (≈23944 recs/sec)
-* **Multi-threaded Pipeline**: \~134s (≈4861 recs/sec)
-* **Edge Computing (Cloudflare Workers)**: \~30s (≈21895 recs/sec)
+* **Sequential**: ~230s (≈2,822 recs/sec)
+* **Bulk File Import**: ~27s (≈23,945 recs/sec)
+* **Multi-threaded Pipeline**: ~134s (≈4,861 recs/sec)
+* **Edge Computing (Cloudflare Workers)**: ~30s (≈21,895 recs/sec)
+
+**Key Insights**: Bulk file processing offers the best throughput for large datasets, while edge computing provides excellent performance with geographical distribution benefits.
 
 ## 🛠️ Technologies Used
 
@@ -45,6 +47,8 @@ With **test dataset of \~650,000 records**:
 * **Database**: PostgreSQL
 * **Edge Computing**: Cloudflare Workers
 * **Threading**: Node.js Worker Threads
+* **Package Manager**: pnpm
+* **Build Tool**: tsx
 * **Monitoring**: Custom performance metrics logger
 
 ## 🎯 Research Applications
@@ -62,10 +66,10 @@ If you use this research in your work, please cite:
 
 ```
 @software{etl_performance_benchmark_2025,
-  author = Arnav,
+  author = {Arnav},
   title = {ETL Performance Benchmark: A Comparative Study of Data Processing Architectures},
-  year = 2025,
-  url = https://github.com/arnavgupta00/elt-khund-pipeline-benchmark/tree/main
+  year = {2025},
+  url = {https://github.com/arnavgupta00/elt-khund-pipeline-benchmark}
 }
 ```
 
@@ -73,32 +77,53 @@ If you use this research in your work, please cite:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/etl-performance-benchmark.git
+git clone https://github.com/arnavgupta00/elt-khund-pipeline-benchmark.git
+cd elt-khund-pipeline-benchmark
 
 # Install dependencies
-npm install
+pnpm install
 
-# Run benchmarks
-npm run benchmark -- --limit=10000
+# Set up environment variables
+cp .env.template .env
+# Edit .env with your database credentials
+
+# Run specific test cases
+pnpm case1    # Sequential processing
+pnpm case2    # Bulk file processing
+pnpm case3    # Multi-threaded pipeline
+pnpm case4    # Edge computing
+
+# Run with custom limit
+pnpm start -- --case=1 --limit=10000
+
+# Deploy edge transformer (requires Cloudflare account)
+cd edge-transformer
+pnpm install
+pnpm deploy
 ```
 
-See [Installation Guide](./docs/INSTALLATION.md) for detailed setup instructions.
+## 📋 Prerequisites
+
+* Node.js (v18+)
+* PostgreSQL database
+* pnpm package manager
+* Cloudflare account (for edge computing case)
 
 ## 📊 Sample Results
 
-![Performance Comparison](./docs/images/performance-chart.png)
+Performance comparison results are automatically saved as JSON files with detailed metrics including execution time, memory usage, and throughput statistics.
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please see [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines.
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
 
 ## 📄 License
 
-MIT License - see [LICENSE](./LICENSE) for details.
+This project is open source. Feel free to use and modify as needed.
 
-## 🔬 Research Paper
+## 🔬 Research Details
 
-The full research paper is available at: \[Link to Paper]
+The benchmark tests were conducted using a subset of Stack Overflow's user dataset, focusing on realistic data transformation scenarios including data validation, type conversion, and aggregation operations.
 
 ---
 
@@ -129,25 +154,26 @@ data-processing
 ## 📁 **Repository Structure:**
 
 ```
-etl-performance-benchmark/
+elt-khund-pipeline-benchmark/
 ├── README.md
-├── LICENSE (MIT)
+├── .env.template
 ├── .gitignore
 ├── package.json
+├── pnpm-lock.yaml
 ├── tsconfig.json
 ├── src/
+│   ├── index.ts
 │   ├── cases/
-│   ├── core/
-│   └── config/
-├── cloudflare-worker/
-├── docs/
-│   ├── INSTALLATION.md
-│   ├── ARCHITECTURE.md
-│   ├── RESULTS.md
-│   └── images/
-├── research_logs/  (gitignored)
-├── scripts/
-│   ├── setup-db.sh
-│   └── load-data.sh
-└── tests/
+│   │   ├── case1-sequential.ts
+│   │   ├── case2-bulk.ts
+│   │   ├── case3-pipeline.ts
+│   │   └── case4a-edge.ts
+│   ├── config/
+│   └── core/
+├── edge-transformer/        # Cloudflare Workers implementation
+│   ├── src/
+│   ├── wrangler.jsonc
+│   └── package.json
+├── research_logs/          # Performance test results (gitignored)
+└── temp/                   # Temporary processing files
 ```
