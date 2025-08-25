@@ -1,0 +1,1970 @@
+{
+  "case_number": 4,
+  "case_name": "Edge Computing (Cloudflare Workers)",
+  "start_time": "2025-08-25T00:30:01.493Z",
+  "memory_start_mb": 13.685859680175781,
+  "detailed_timings": [
+    {
+      "phase": "Batch Timing | worker=412ms insert=138ms total=550ms",
+      "duration_ms": 1128,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:02.622Z"
+    },
+    {
+      "phase": "Batch Timing | worker=334ms insert=220ms total=554ms",
+      "duration_ms": 1405,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:02.899Z"
+    },
+    {
+      "phase": "Batch Timing | worker=389ms insert=175ms total=564ms",
+      "duration_ms": 1498,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:02.991Z"
+    },
+    {
+      "phase": "Batch Timing | worker=387ms insert=190ms total=577ms",
+      "duration_ms": 1595,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:03.089Z"
+    },
+    {
+      "phase": "Batch Timing | worker=732ms insert=173ms total=905ms",
+      "duration_ms": 1670,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:03.164Z"
+    },
+    {
+      "phase": "Batch Timing | worker=311ms insert=131ms total=442ms",
+      "duration_ms": 1814,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:03.307Z"
+    },
+    {
+      "phase": "Batch Timing | worker=678ms insert=152ms total=830ms",
+      "duration_ms": 1933,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:03.426Z"
+    },
+    {
+      "phase": "Batch Timing | worker=636ms insert=131ms total=767ms",
+      "duration_ms": 1962,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:03.455Z"
+    },
+    {
+      "phase": "Batch Timing | worker=306ms insert=180ms total=486ms",
+      "duration_ms": 2045,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:03.538Z"
+    },
+    {
+      "phase": "Batch Timing | worker=527ms insert=208ms total=735ms",
+      "duration_ms": 2201,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:03.694Z"
+    },
+    {
+      "phase": "Batch Timing | worker=310ms insert=159ms total=469ms",
+      "duration_ms": 2203,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:03.697Z"
+    },
+    {
+      "phase": "Batch Timing | worker=674ms insert=127ms total=801ms",
+      "duration_ms": 2449,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:03.943Z"
+    },
+    {
+      "phase": "Batch Timing | worker=277ms insert=148ms total=425ms",
+      "duration_ms": 2515,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:04.008Z"
+    },
+    {
+      "phase": "Batch Timing | worker=624ms insert=168ms total=792ms",
+      "duration_ms": 2699,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:04.193Z"
+    },
+    {
+      "phase": "Batch Timing | worker=551ms insert=157ms total=708ms",
+      "duration_ms": 2709,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:04.202Z"
+    },
+    {
+      "phase": "Batch Timing | worker=309ms insert=158ms total=467ms",
+      "duration_ms": 2730,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:04.223Z"
+    },
+    {
+      "phase": "Batch Timing | worker=306ms insert=159ms total=465ms",
+      "duration_ms": 2889,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:04.382Z"
+    },
+    {
+      "phase": "Batch Timing | worker=477ms insert=235ms total=712ms",
+      "duration_ms": 2893,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:04.387Z"
+    },
+    {
+      "phase": "Batch Timing | worker=332ms insert=219ms total=551ms",
+      "duration_ms": 2894,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:04.387Z"
+    },
+    {
+      "phase": "Batch Timing | worker=253ms insert=138ms total=391ms",
+      "duration_ms": 2895,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:04.388Z"
+    },
+    {
+      "phase": "Batch Timing | worker=251ms insert=136ms total=387ms",
+      "duration_ms": 2984,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:04.477Z"
+    },
+    {
+      "phase": "Batch Timing | worker=2276ms insert=126ms total=2402ms",
+      "duration_ms": 3072,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:04.565Z"
+    },
+    {
+      "phase": "Batch Timing | worker=428ms insert=124ms total=552ms",
+      "duration_ms": 3242,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:04.735Z"
+    },
+    {
+      "phase": "Batch Timing | worker=2814ms insert=162ms total=2976ms",
+      "duration_ms": 3327,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:04.820Z"
+    },
+    {
+      "phase": "Batch Timing | worker=556ms insert=147ms total=703ms",
+      "duration_ms": 3483,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:04.976Z"
+    },
+    {
+      "phase": "Batch Timing | worker=480ms insert=159ms total=639ms",
+      "duration_ms": 3506,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:04.999Z"
+    },
+    {
+      "phase": "Batch Timing | worker=2958ms insert=144ms total=3102ms",
+      "duration_ms": 3587,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:05.080Z"
+    },
+    {
+      "phase": "Batch Timing | worker=2188ms insert=166ms total=2354ms",
+      "duration_ms": 3632,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:05.126Z"
+    },
+    {
+      "phase": "Batch Timing | worker=313ms insert=171ms total=484ms",
+      "duration_ms": 3793,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:05.287Z"
+    },
+    {
+      "phase": "Batch Timing | worker=284ms insert=181ms total=465ms",
+      "duration_ms": 3862,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:05.355Z"
+    },
+    {
+      "phase": "Batch Timing | worker=496ms insert=180ms total=676ms",
+      "duration_ms": 3897,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:05.390Z"
+    },
+    {
+      "phase": "Batch Timing | worker=135ms insert=164ms total=299ms",
+      "duration_ms": 3956,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:05.450Z"
+    },
+    {
+      "phase": "Batch Timing | worker=924ms insert=159ms total=1083ms",
+      "duration_ms": 4045,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:05.538Z"
+    },
+    {
+      "phase": "Batch Timing | worker=867ms insert=151ms total=1018ms",
+      "duration_ms": 4065,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:05.559Z"
+    },
+    {
+      "phase": "Batch Timing | worker=412ms insert=142ms total=554ms",
+      "duration_ms": 4127,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:05.620Z"
+    },
+    {
+      "phase": "Batch Timing | worker=272ms insert=134ms total=406ms",
+      "duration_ms": 4151,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:05.644Z"
+    },
+    {
+      "phase": "Batch Timing | worker=908ms insert=170ms total=1078ms",
+      "duration_ms": 4214,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:05.707Z"
+    },
+    {
+      "phase": "Batch Timing | worker=310ms insert=147ms total=457ms",
+      "duration_ms": 4297,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:05.790Z"
+    },
+    {
+      "phase": "Batch Timing | worker=359ms insert=194ms total=553ms",
+      "duration_ms": 4490,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:05.984Z"
+    },
+    {
+      "phase": "Batch Timing | worker=120ms insert=162ms total=282ms",
+      "duration_ms": 4562,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:06.055Z"
+    },
+    {
+      "phase": "Batch Timing | worker=247ms insert=198ms total=445ms",
+      "duration_ms": 4640,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:06.134Z"
+    },
+    {
+      "phase": "Batch Timing | worker=136ms insert=159ms total=295ms",
+      "duration_ms": 4649,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:06.142Z"
+    },
+    {
+      "phase": "Batch Timing | worker=1030ms insert=167ms total=1197ms",
+      "duration_ms": 4684,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:06.178Z"
+    },
+    {
+      "phase": "Batch Timing | worker=131ms insert=125ms total=256ms",
+      "duration_ms": 4706,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:06.199Z"
+    },
+    {
+      "phase": "Batch Timing | worker=104ms insert=115ms total=219ms",
+      "duration_ms": 4849,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:06.342Z"
+    },
+    {
+      "phase": "Batch Timing | worker=654ms insert=139ms total=793ms",
+      "duration_ms": 4902,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:06.396Z"
+    },
+    {
+      "phase": "Batch Timing | worker=112ms insert=134ms total=246ms",
+      "duration_ms": 4955,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:06.449Z"
+    },
+    {
+      "phase": "Batch Timing | worker=317ms insert=125ms total=442ms",
+      "duration_ms": 4983,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:06.476Z"
+    },
+    {
+      "phase": "Batch Timing | worker=256ms insert=94ms total=350ms",
+      "duration_ms": 5135,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:06.629Z"
+    },
+    {
+      "phase": "Batch Timing | worker=113ms insert=113ms total=226ms",
+      "duration_ms": 5168,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:06.661Z"
+    },
+    {
+      "phase": "Batch Timing | worker=291ms insert=97ms total=388ms",
+      "duration_ms": 5252,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:06.746Z"
+    },
+    {
+      "phase": "Batch Timing | worker=211ms insert=136ms total=347ms",
+      "duration_ms": 5358,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:06.852Z"
+    },
+    {
+      "phase": "Batch Timing | worker=185ms insert=138ms total=323ms",
+      "duration_ms": 5414,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:06.908Z"
+    },
+    {
+      "phase": "Batch Timing | worker=94ms insert=115ms total=209ms",
+      "duration_ms": 5450,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:06.943Z"
+    },
+    {
+      "phase": "Batch Timing | worker=122ms insert=128ms total=250ms",
+      "duration_ms": 5560,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:07.053Z"
+    },
+    {
+      "phase": "Batch Timing | worker=104ms insert=110ms total=214ms",
+      "duration_ms": 5589,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:07.082Z"
+    },
+    {
+      "phase": "Batch Timing | worker=327ms insert=225ms total=552ms",
+      "duration_ms": 5723,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:07.217Z"
+    },
+    {
+      "phase": "Batch Timing | worker=107ms insert=165ms total=272ms",
+      "duration_ms": 5724,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:07.217Z"
+    },
+    {
+      "phase": "Batch Timing | worker=75ms insert=162ms total=237ms",
+      "duration_ms": 5837,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:07.331Z"
+    },
+    {
+      "phase": "Batch Timing | worker=263ms insert=134ms total=397ms",
+      "duration_ms": 5924,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:07.418Z"
+    },
+    {
+      "phase": "Batch Timing | worker=92ms insert=123ms total=215ms",
+      "duration_ms": 6130,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:07.623Z"
+    },
+    {
+      "phase": "Batch Timing | worker=139ms insert=129ms total=268ms",
+      "duration_ms": 6249,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:07.742Z"
+    },
+    {
+      "phase": "Batch Timing | worker=170ms insert=167ms total=337ms",
+      "duration_ms": 6386,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:07.880Z"
+    },
+    {
+      "phase": "Batch Timing | worker=123ms insert=151ms total=274ms",
+      "duration_ms": 6411,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:07.905Z"
+    },
+    {
+      "phase": "Batch Timing | worker=74ms insert=145ms total=219ms",
+      "duration_ms": 6444,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:07.937Z"
+    },
+    {
+      "phase": "Batch Timing | worker=154ms insert=130ms total=284ms",
+      "duration_ms": 6606,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:08.099Z"
+    },
+    {
+      "phase": "Batch Timing | worker=672ms insert=137ms total=809ms",
+      "duration_ms": 6654,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:08.148Z"
+    },
+    {
+      "phase": "Batch Timing | worker=149ms insert=118ms total=267ms",
+      "duration_ms": 6683,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:08.176Z"
+    },
+    {
+      "phase": "Batch Timing | worker=111ms insert=113ms total=224ms",
+      "duration_ms": 6718,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:08.212Z"
+    },
+    {
+      "phase": "Batch Timing | worker=81ms insert=108ms total=189ms",
+      "duration_ms": 6754,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:08.247Z"
+    },
+    {
+      "phase": "Batch Timing | worker=90ms insert=132ms total=222ms",
+      "duration_ms": 6942,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:08.435Z"
+    },
+    {
+      "phase": "Batch Timing | worker=96ms insert=132ms total=228ms",
+      "duration_ms": 7018,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:08.512Z"
+    },
+    {
+      "phase": "Batch Timing | worker=179ms insert=188ms total=367ms",
+      "duration_ms": 7219,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:08.712Z"
+    },
+    {
+      "phase": "Batch Timing | worker=154ms insert=217ms total=371ms",
+      "duration_ms": 7295,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:08.788Z"
+    },
+    {
+      "phase": "Batch Timing | worker=165ms insert=211ms total=376ms",
+      "duration_ms": 7378,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:08.871Z"
+    },
+    {
+      "phase": "Batch Timing | worker=152ms insert=159ms total=311ms",
+      "duration_ms": 7395,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:08.888Z"
+    },
+    {
+      "phase": "Batch Timing | worker=165ms insert=150ms total=315ms",
+      "duration_ms": 7489,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:08.983Z"
+    },
+    {
+      "phase": "Batch Timing | worker=135ms insert=135ms total=270ms",
+      "duration_ms": 7529,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:09.022Z"
+    },
+    {
+      "phase": "Batch Timing | worker=111ms insert=120ms total=231ms",
+      "duration_ms": 7580,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:09.074Z"
+    },
+    {
+      "phase": "Batch Timing | worker=107ms insert=111ms total=218ms",
+      "duration_ms": 7654,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:09.147Z"
+    },
+    {
+      "phase": "Batch Timing | worker=106ms insert=148ms total=254ms",
+      "duration_ms": 7759,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:09.252Z"
+    },
+    {
+      "phase": "Batch Timing | worker=100ms insert=139ms total=239ms",
+      "duration_ms": 7824,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:09.317Z"
+    },
+    {
+      "phase": "Batch Timing | worker=69ms insert=118ms total=187ms",
+      "duration_ms": 7844,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:09.338Z"
+    },
+    {
+      "phase": "Batch Timing | worker=99ms insert=128ms total=227ms",
+      "duration_ms": 7963,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:09.456Z"
+    },
+    {
+      "phase": "Batch Timing | worker=100ms insert=114ms total=214ms",
+      "duration_ms": 8025,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:09.518Z"
+    },
+    {
+      "phase": "Batch Timing | worker=116ms insert=108ms total=224ms",
+      "duration_ms": 8102,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:09.596Z"
+    },
+    {
+      "phase": "Batch Timing | worker=134ms insert=133ms total=267ms",
+      "duration_ms": 8211,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:09.705Z"
+    },
+    {
+      "phase": "Batch Timing | worker=144ms insert=125ms total=269ms",
+      "duration_ms": 8297,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:09.791Z"
+    },
+    {
+      "phase": "Batch Timing | worker=148ms insert=133ms total=281ms",
+      "duration_ms": 8476,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:09.969Z"
+    },
+    {
+      "phase": "Batch Timing | worker=158ms insert=149ms total=307ms",
+      "duration_ms": 8666,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:10.160Z"
+    },
+    {
+      "phase": "Batch Timing | worker=333ms insert=164ms total=497ms",
+      "duration_ms": 8772,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:10.266Z"
+    },
+    {
+      "phase": "Batch Timing | worker=97ms insert=193ms total=290ms",
+      "duration_ms": 8858,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:10.352Z"
+    },
+    {
+      "phase": "Batch Timing | worker=86ms insert=140ms total=226ms",
+      "duration_ms": 8873,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:10.366Z"
+    },
+    {
+      "phase": "Batch Timing | worker=285ms insert=153ms total=438ms",
+      "duration_ms": 8935,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:10.428Z"
+    },
+    {
+      "phase": "Batch Timing | worker=68ms insert=135ms total=203ms",
+      "duration_ms": 8946,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:10.440Z"
+    },
+    {
+      "phase": "Batch Timing | worker=469ms insert=111ms total=580ms",
+      "duration_ms": 9011,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:10.505Z"
+    },
+    {
+      "phase": "Batch Timing | worker=105ms insert=103ms total=208ms",
+      "duration_ms": 9048,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:10.542Z"
+    },
+    {
+      "phase": "Batch Timing | worker=94ms insert=108ms total=202ms",
+      "duration_ms": 9286,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:10.780Z"
+    },
+    {
+      "phase": "Batch Timing | worker=279ms insert=138ms total=417ms",
+      "duration_ms": 9340,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:10.834Z"
+    },
+    {
+      "phase": "Batch Timing | worker=181ms insert=147ms total=328ms",
+      "duration_ms": 9652,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:11.146Z"
+    },
+    {
+      "phase": "Batch Timing | worker=159ms insert=182ms total=341ms",
+      "duration_ms": 9743,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:11.236Z"
+    },
+    {
+      "phase": "Batch Timing | worker=191ms insert=134ms total=325ms",
+      "duration_ms": 9804,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:11.297Z"
+    },
+    {
+      "phase": "Batch Timing | worker=145ms insert=221ms total=366ms",
+      "duration_ms": 9927,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:11.420Z"
+    },
+    {
+      "phase": "Batch Timing | worker=648ms insert=183ms total=831ms",
+      "duration_ms": 9986,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:11.479Z"
+    },
+    {
+      "phase": "Batch Timing | worker=202ms insert=151ms total=353ms",
+      "duration_ms": 9987,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:11.480Z"
+    },
+    {
+      "phase": "Batch Timing | worker=163ms insert=188ms total=351ms",
+      "duration_ms": 10063,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:11.556Z"
+    },
+    {
+      "phase": "Batch Timing | worker=106ms insert=163ms total=269ms",
+      "duration_ms": 10126,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:11.619Z"
+    },
+    {
+      "phase": "Batch Timing | worker=103ms insert=192ms total=295ms",
+      "duration_ms": 10235,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:11.729Z"
+    },
+    {
+      "phase": "Batch Timing | worker=287ms insert=179ms total=466ms",
+      "duration_ms": 10252,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:11.745Z"
+    },
+    {
+      "phase": "Batch Timing | worker=128ms insert=176ms total=304ms",
+      "duration_ms": 10320,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:11.814Z"
+    },
+    {
+      "phase": "Batch Timing | worker=932ms insert=238ms total=1170ms",
+      "duration_ms": 10411,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:11.905Z"
+    },
+    {
+      "phase": "Batch Timing | worker=145ms insert=182ms total=327ms",
+      "duration_ms": 10516,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:12.010Z"
+    },
+    {
+      "phase": "Batch Timing | worker=262ms insert=161ms total=423ms",
+      "duration_ms": 10522,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:12.015Z"
+    },
+    {
+      "phase": "Batch Timing | worker=147ms insert=182ms total=329ms",
+      "duration_ms": 10806,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:12.300Z"
+    },
+    {
+      "phase": "Batch Timing | worker=183ms insert=185ms total=368ms",
+      "duration_ms": 10931,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:12.425Z"
+    },
+    {
+      "phase": "Batch Timing | worker=120ms insert=207ms total=327ms",
+      "duration_ms": 10990,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:12.483Z"
+    },
+    {
+      "phase": "Batch Timing | worker=63ms insert=156ms total=219ms",
+      "duration_ms": 11060,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:12.554Z"
+    },
+    {
+      "phase": "Batch Timing | worker=100ms insert=194ms total=294ms",
+      "duration_ms": 11215,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:12.708Z"
+    },
+    {
+      "phase": "Batch Timing | worker=656ms insert=208ms total=864ms",
+      "duration_ms": 11250,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:12.743Z"
+    },
+    {
+      "phase": "Batch Timing | worker=78ms insert=212ms total=290ms",
+      "duration_ms": 11291,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:12.784Z"
+    },
+    {
+      "phase": "Batch Timing | worker=886ms insert=192ms total=1078ms",
+      "duration_ms": 11362,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:12.856Z"
+    },
+    {
+      "phase": "Batch Timing | worker=149ms insert=138ms total=287ms",
+      "duration_ms": 11374,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:12.867Z"
+    },
+    {
+      "phase": "Batch Timing | worker=119ms insert=173ms total=292ms",
+      "duration_ms": 11635,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:13.129Z"
+    },
+    {
+      "phase": "Batch Timing | worker=291ms insert=180ms total=471ms",
+      "duration_ms": 11663,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:13.156Z"
+    },
+    {
+      "phase": "Batch Timing | worker=164ms insert=203ms total=367ms",
+      "duration_ms": 11882,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:13.375Z"
+    },
+    {
+      "phase": "Batch Timing | worker=164ms insert=276ms total=440ms",
+      "duration_ms": 12234,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:13.727Z"
+    },
+    {
+      "phase": "Batch Timing | worker=137ms insert=226ms total=363ms",
+      "duration_ms": 12248,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:13.742Z"
+    },
+    {
+      "phase": "Batch Timing | worker=669ms insert=226ms total=895ms",
+      "duration_ms": 12318,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:13.811Z"
+    },
+    {
+      "phase": "Batch Timing | worker=154ms insert=206ms total=360ms",
+      "duration_ms": 12330,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:13.823Z"
+    },
+    {
+      "phase": "Batch Timing | worker=145ms insert=195ms total=340ms",
+      "duration_ms": 12400,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:13.893Z"
+    },
+    {
+      "phase": "Batch Timing | worker=137ms insert=172ms total=309ms",
+      "duration_ms": 12472,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:13.965Z"
+    },
+    {
+      "phase": "Batch Timing | worker=727ms insert=224ms total=951ms",
+      "duration_ms": 12553,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:14.047Z"
+    },
+    {
+      "phase": "Batch Timing | worker=112ms insert=176ms total=288ms",
+      "duration_ms": 12554,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:14.047Z"
+    },
+    {
+      "phase": "Batch Timing | worker=102ms insert=191ms total=293ms",
+      "duration_ms": 12731,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:14.224Z"
+    },
+    {
+      "phase": "Batch Timing | worker=125ms insert=152ms total=277ms",
+      "duration_ms": 12797,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:14.291Z"
+    },
+    {
+      "phase": "Batch Timing | worker=322ms insert=165ms total=487ms",
+      "duration_ms": 12836,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:14.329Z"
+    },
+    {
+      "phase": "Batch Timing | worker=146ms insert=150ms total=296ms",
+      "duration_ms": 12896,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:14.389Z"
+    },
+    {
+      "phase": "Batch Timing | worker=88ms insert=135ms total=223ms",
+      "duration_ms": 13083,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:14.577Z"
+    },
+    {
+      "phase": "Batch Timing | worker=93ms insert=162ms total=255ms",
+      "duration_ms": 13176,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:14.670Z"
+    },
+    {
+      "phase": "Batch Timing | worker=73ms insert=132ms total=205ms",
+      "duration_ms": 13190,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:14.683Z"
+    },
+    {
+      "phase": "Batch Timing | worker=470ms insert=151ms total=621ms",
+      "duration_ms": 13318,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:14.812Z"
+    },
+    {
+      "phase": "Batch Timing | worker=96ms insert=151ms total=247ms",
+      "duration_ms": 13392,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:14.885Z"
+    },
+    {
+      "phase": "Batch Timing | worker=68ms insert=145ms total=213ms",
+      "duration_ms": 13505,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:14.998Z"
+    },
+    {
+      "phase": "Batch Timing | worker=75ms insert=162ms total=237ms",
+      "duration_ms": 13614,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:15.108Z"
+    },
+    {
+      "phase": "Batch Timing | worker=274ms insert=149ms total=423ms",
+      "duration_ms": 13643,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:15.137Z"
+    },
+    {
+      "phase": "Batch Timing | worker=112ms insert=144ms total=256ms",
+      "duration_ms": 13715,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:15.209Z"
+    },
+    {
+      "phase": "Batch Timing | worker=146ms insert=208ms total=354ms",
+      "duration_ms": 14051,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:15.545Z"
+    },
+    {
+      "phase": "Batch Timing | worker=118ms insert=271ms total=389ms",
+      "duration_ms": 14239,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:15.732Z"
+    },
+    {
+      "phase": "Batch Timing | worker=504ms insert=250ms total=754ms",
+      "duration_ms": 14285,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:15.779Z"
+    },
+    {
+      "phase": "Batch Timing | worker=104ms insert=184ms total=288ms",
+      "duration_ms": 14286,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:15.780Z"
+    },
+    {
+      "phase": "Batch Timing | worker=111ms insert=145ms total=256ms",
+      "duration_ms": 14322,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:15.815Z"
+    },
+    {
+      "phase": "Batch Timing | worker=279ms insert=308ms total=587ms",
+      "duration_ms": 14359,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:15.853Z"
+    },
+    {
+      "phase": "Batch Timing | worker=281ms insert=193ms total=474ms",
+      "duration_ms": 14400,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:15.893Z"
+    },
+    {
+      "phase": "Batch Timing | worker=101ms insert=153ms total=254ms",
+      "duration_ms": 14401,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:15.894Z"
+    },
+    {
+      "phase": "Batch Timing | worker=80ms insert=118ms total=198ms",
+      "duration_ms": 14505,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:15.999Z"
+    },
+    {
+      "phase": "Batch Timing | worker=82ms insert=126ms total=208ms",
+      "duration_ms": 14669,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:16.163Z"
+    },
+    {
+      "phase": "Batch Timing | worker=77ms insert=153ms total=230ms",
+      "duration_ms": 14813,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:16.307Z"
+    },
+    {
+      "phase": "Batch Timing | worker=93ms insert=140ms total=233ms",
+      "duration_ms": 14874,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:16.367Z"
+    },
+    {
+      "phase": "Batch Timing | worker=279ms insert=128ms total=407ms",
+      "duration_ms": 14928,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:16.422Z"
+    },
+    {
+      "phase": "Batch Timing | worker=124ms insert=155ms total=279ms",
+      "duration_ms": 14987,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:16.480Z"
+    },
+    {
+      "phase": "Batch Timing | worker=167ms insert=136ms total=303ms",
+      "duration_ms": 15078,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:16.571Z"
+    },
+    {
+      "phase": "Batch Timing | worker=260ms insert=135ms total=395ms",
+      "duration_ms": 15243,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:16.736Z"
+    },
+    {
+      "phase": "Batch Timing | worker=165ms insert=142ms total=307ms",
+      "duration_ms": 15297,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:16.790Z"
+    },
+    {
+      "phase": "Batch Timing | worker=157ms insert=126ms total=283ms",
+      "duration_ms": 15397,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:16.890Z"
+    },
+    {
+      "phase": "Batch Timing | worker=366ms insert=153ms total=519ms",
+      "duration_ms": 15438,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:16.932Z"
+    },
+    {
+      "phase": "Batch Timing | worker=159ms insert=147ms total=306ms",
+      "duration_ms": 15488,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:16.981Z"
+    },
+    {
+      "phase": "Batch Timing | worker=117ms insert=142ms total=259ms",
+      "duration_ms": 15504,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:16.997Z"
+    },
+    {
+      "phase": "Batch Timing | worker=168ms insert=141ms total=309ms",
+      "duration_ms": 15618,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:17.112Z"
+    },
+    {
+      "phase": "Batch Timing | worker=110ms insert=148ms total=258ms",
+      "duration_ms": 15710,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:17.204Z"
+    },
+    {
+      "phase": "Batch Timing | worker=555ms insert=135ms total=690ms",
+      "duration_ms": 15742,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:17.236Z"
+    },
+    {
+      "phase": "Batch Timing | worker=188ms insert=193ms total=381ms",
+      "duration_ms": 15767,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:17.261Z"
+    },
+    {
+      "phase": "Batch Timing | worker=114ms insert=169ms total=283ms",
+      "duration_ms": 15800,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:17.293Z"
+    },
+    {
+      "phase": "Batch Timing | worker=123ms insert=151ms total=274ms",
+      "duration_ms": 15854,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:17.347Z"
+    },
+    {
+      "phase": "Batch Timing | worker=108ms insert=136ms total=244ms",
+      "duration_ms": 15899,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:17.392Z"
+    },
+    {
+      "phase": "Batch Timing | worker=111ms insert=137ms total=248ms",
+      "duration_ms": 15978,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:17.472Z"
+    },
+    {
+      "phase": "Batch Timing | worker=174ms insert=123ms total=297ms",
+      "duration_ms": 16101,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:17.595Z"
+    },
+    {
+      "phase": "Batch Timing | worker=168ms insert=167ms total=335ms",
+      "duration_ms": 16215,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:17.709Z"
+    },
+    {
+      "phase": "Batch Timing | worker=120ms insert=151ms total=271ms",
+      "duration_ms": 16228,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:17.721Z"
+    },
+    {
+      "phase": "Batch Timing | worker=71ms insert=99ms total=170ms",
+      "duration_ms": 16258,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:17.751Z"
+    },
+    {
+      "phase": "Batch Timing | worker=255ms insert=105ms total=360ms",
+      "duration_ms": 16381,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:17.874Z"
+    },
+    {
+      "phase": "Batch Timing | worker=92ms insert=130ms total=222ms",
+      "duration_ms": 16471,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:17.965Z"
+    },
+    {
+      "phase": "Batch Timing | worker=85ms insert=112ms total=197ms",
+      "duration_ms": 16568,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:18.061Z"
+    },
+    {
+      "phase": "Batch Timing | worker=98ms insert=138ms total=236ms",
+      "duration_ms": 16669,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:18.163Z"
+    },
+    {
+      "phase": "Batch Timing | worker=81ms insert=122ms total=203ms",
+      "duration_ms": 16700,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:18.193Z"
+    },
+    {
+      "phase": "Batch Timing | worker=94ms insert=149ms total=243ms",
+      "duration_ms": 16803,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:18.297Z"
+    },
+    {
+      "phase": "Batch Timing | worker=85ms insert=121ms total=206ms",
+      "duration_ms": 16833,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:18.326Z"
+    },
+    {
+      "phase": "Batch Timing | worker=473ms insert=162ms total=635ms",
+      "duration_ms": 16946,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:18.439Z"
+    },
+    {
+      "phase": "Batch Timing | worker=112ms insert=147ms total=259ms",
+      "duration_ms": 16950,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:18.443Z"
+    },
+    {
+      "phase": "Batch Timing | worker=93ms insert=138ms total=231ms",
+      "duration_ms": 16987,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:18.480Z"
+    },
+    {
+      "phase": "Batch Timing | worker=112ms insert=145ms total=257ms",
+      "duration_ms": 17077,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:18.570Z"
+    },
+    {
+      "phase": "Batch Timing | worker=89ms insert=117ms total=206ms",
+      "duration_ms": 17112,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:18.605Z"
+    },
+    {
+      "phase": "Batch Timing | worker=156ms insert=136ms total=292ms",
+      "duration_ms": 17260,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:18.753Z"
+    },
+    {
+      "phase": "Batch Timing | worker=119ms insert=149ms total=268ms",
+      "duration_ms": 17306,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:18.800Z"
+    },
+    {
+      "phase": "Batch Timing | worker=86ms insert=149ms total=235ms",
+      "duration_ms": 17408,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:18.902Z"
+    },
+    {
+      "phase": "Batch Timing | worker=81ms insert=141ms total=222ms",
+      "duration_ms": 17458,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:18.952Z"
+    },
+    {
+      "phase": "Batch Timing | worker=258ms insert=138ms total=396ms",
+      "duration_ms": 17500,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:18.993Z"
+    },
+    {
+      "phase": "Batch Timing | worker=110ms insert=132ms total=242ms",
+      "duration_ms": 17540,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:19.033Z"
+    },
+    {
+      "phase": "Batch Timing | worker=88ms insert=118ms total=206ms",
+      "duration_ms": 17639,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:19.132Z"
+    },
+    {
+      "phase": "Batch Timing | worker=92ms insert=129ms total=221ms",
+      "duration_ms": 17723,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:19.216Z"
+    },
+    {
+      "phase": "Batch Timing | worker=94ms insert=101ms total=195ms",
+      "duration_ms": 17762,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:19.255Z"
+    },
+    {
+      "phase": "Batch Timing | worker=314ms insert=129ms total=443ms",
+      "duration_ms": 17811,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:19.305Z"
+    },
+    {
+      "phase": "Batch Timing | worker=76ms insert=123ms total=199ms",
+      "duration_ms": 17829,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:19.323Z"
+    },
+    {
+      "phase": "Batch Timing | worker=78ms insert=98ms total=176ms",
+      "duration_ms": 17969,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:19.463Z"
+    },
+    {
+      "phase": "Batch Timing | worker=89ms insert=136ms total=225ms",
+      "duration_ms": 18163,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:19.656Z"
+    },
+    {
+      "phase": "Batch Timing | worker=164ms insert=172ms total=336ms",
+      "duration_ms": 18334,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:19.827Z"
+    },
+    {
+      "phase": "Batch Timing | worker=148ms insert=162ms total=310ms",
+      "duration_ms": 18375,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:19.869Z"
+    },
+    {
+      "phase": "Batch Timing | worker=84ms insert=99ms total=183ms",
+      "duration_ms": 18377,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:19.870Z"
+    },
+    {
+      "phase": "Batch Timing | worker=66ms insert=111ms total=177ms",
+      "duration_ms": 18496,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:19.990Z"
+    },
+    {
+      "phase": "Batch Timing | worker=95ms insert=149ms total=244ms",
+      "duration_ms": 18497,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:19.990Z"
+    },
+    {
+      "phase": "Batch Timing | worker=274ms insert=123ms total=397ms",
+      "duration_ms": 18526,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:20.019Z"
+    },
+    {
+      "phase": "Batch Timing | worker=156ms insert=176ms total=332ms",
+      "duration_ms": 18880,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:20.374Z"
+    },
+    {
+      "phase": "Batch Timing | worker=105ms insert=179ms total=284ms",
+      "duration_ms": 18996,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:20.489Z"
+    },
+    {
+      "phase": "Batch Timing | worker=84ms insert=147ms total=231ms",
+      "duration_ms": 19005,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:20.499Z"
+    },
+    {
+      "phase": "Batch Timing | worker=116ms insert=156ms total=272ms",
+      "duration_ms": 19104,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:20.598Z"
+    },
+    {
+      "phase": "Batch Timing | worker=76ms insert=177ms total=253ms",
+      "duration_ms": 19157,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:20.651Z"
+    },
+    {
+      "phase": "Batch Timing | worker=92ms insert=128ms total=220ms",
+      "duration_ms": 19217,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:20.711Z"
+    },
+    {
+      "phase": "Batch Timing | worker=64ms insert=162ms total=226ms",
+      "duration_ms": 19289,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:20.782Z"
+    },
+    {
+      "phase": "Batch Timing | worker=99ms insert=119ms total=218ms",
+      "duration_ms": 19350,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:20.843Z"
+    },
+    {
+      "phase": "Batch Timing | worker=104ms insert=149ms total=253ms",
+      "duration_ms": 19451,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:20.944Z"
+    },
+    {
+      "phase": "Batch Timing | worker=112ms insert=129ms total=241ms",
+      "duration_ms": 19508,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:21.002Z"
+    },
+    {
+      "phase": "Batch Timing | worker=870ms insert=163ms total=1033ms",
+      "duration_ms": 19512,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:21.006Z"
+    },
+    {
+      "phase": "Batch Timing | worker=92ms insert=155ms total=247ms",
+      "duration_ms": 19577,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:21.071Z"
+    },
+    {
+      "phase": "Batch Timing | worker=89ms insert=153ms total=242ms",
+      "duration_ms": 19640,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:21.134Z"
+    },
+    {
+      "phase": "Batch Timing | worker=88ms insert=163ms total=251ms",
+      "duration_ms": 19711,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:21.205Z"
+    },
+    {
+      "phase": "Batch Timing | worker=90ms insert=153ms total=243ms",
+      "duration_ms": 19770,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:21.264Z"
+    },
+    {
+      "phase": "Batch Timing | worker=139ms insert=198ms total=337ms",
+      "duration_ms": 19931,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:21.424Z"
+    },
+    {
+      "phase": "Batch Timing | worker=119ms insert=191ms total=310ms",
+      "duration_ms": 19974,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:21.468Z"
+    },
+    {
+      "phase": "Batch Timing | worker=117ms insert=157ms total=274ms",
+      "duration_ms": 20027,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:21.521Z"
+    },
+    {
+      "phase": "Batch Timing | worker=72ms insert=128ms total=200ms",
+      "duration_ms": 20045,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:21.539Z"
+    },
+    {
+      "phase": "Batch Timing | worker=95ms insert=157ms total=252ms",
+      "duration_ms": 20184,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:21.678Z"
+    },
+    {
+      "phase": "Batch Timing | worker=75ms insert=124ms total=199ms",
+      "duration_ms": 20204,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:21.697Z"
+    },
+    {
+      "phase": "Batch Timing | worker=103ms insert=147ms total=250ms",
+      "duration_ms": 20331,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:21.824Z"
+    },
+    {
+      "phase": "Batch Timing | worker=83ms insert=109ms total=192ms",
+      "duration_ms": 20348,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:21.841Z"
+    },
+    {
+      "phase": "Batch Timing | worker=91ms insert=95ms total=186ms",
+      "duration_ms": 20501,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:21.995Z"
+    },
+    {
+      "phase": "Batch Timing | worker=102ms insert=133ms total=235ms",
+      "duration_ms": 20618,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:22.111Z"
+    },
+    {
+      "phase": "Batch Timing | worker=80ms insert=139ms total=219ms",
+      "duration_ms": 20770,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:22.263Z"
+    },
+    {
+      "phase": "Batch Timing | worker=104ms insert=119ms total=223ms",
+      "duration_ms": 20832,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:22.325Z"
+    },
+    {
+      "phase": "Batch Timing | worker=79ms insert=156ms total=235ms",
+      "duration_ms": 20906,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:22.399Z"
+    },
+    {
+      "phase": "Batch Timing | worker=94ms insert=146ms total=240ms",
+      "duration_ms": 20971,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:22.465Z"
+    },
+    {
+      "phase": "Batch Timing | worker=90ms insert=125ms total=215ms",
+      "duration_ms": 21011,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:22.504Z"
+    },
+    {
+      "phase": "Batch Timing | worker=104ms insert=151ms total=255ms",
+      "duration_ms": 21115,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:22.608Z"
+    },
+    {
+      "phase": "Batch Timing | worker=90ms insert=102ms total=192ms",
+      "duration_ms": 21122,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:22.616Z"
+    },
+    {
+      "phase": "Batch Timing | worker=95ms insert=137ms total=232ms",
+      "duration_ms": 21233,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:22.726Z"
+    },
+    {
+      "phase": "Batch Timing | worker=105ms insert=104ms total=209ms",
+      "duration_ms": 21284,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:22.778Z"
+    },
+    {
+      "phase": "Batch Timing | worker=86ms insert=143ms total=229ms",
+      "duration_ms": 21364,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:22.857Z"
+    },
+    {
+      "phase": "Batch Timing | worker=97ms insert=126ms total=223ms",
+      "duration_ms": 21419,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:22.912Z"
+    },
+    {
+      "phase": "Batch Timing | worker=89ms insert=105ms total=194ms",
+      "duration_ms": 21537,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:23.031Z"
+    },
+    {
+      "phase": "Batch Timing | worker=112ms insert=161ms total=273ms",
+      "duration_ms": 21538,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:23.031Z"
+    },
+    {
+      "phase": "Batch Timing | worker=108ms insert=125ms total=233ms",
+      "duration_ms": 21641,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:23.134Z"
+    },
+    {
+      "phase": "Batch Timing | worker=68ms insert=114ms total=182ms",
+      "duration_ms": 21651,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:23.145Z"
+    },
+    {
+      "phase": "Batch Timing | worker=146ms insert=154ms total=300ms",
+      "duration_ms": 21914,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:23.408Z"
+    },
+    {
+      "phase": "Batch Timing | worker=101ms insert=136ms total=237ms",
+      "duration_ms": 21919,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:23.413Z"
+    },
+    {
+      "phase": "Batch Timing | worker=97ms insert=110ms total=207ms",
+      "duration_ms": 22009,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:23.503Z"
+    },
+    {
+      "phase": "Batch Timing | worker=111ms insert=157ms total=268ms",
+      "duration_ms": 22010,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:23.503Z"
+    },
+    {
+      "phase": "Batch Timing | worker=98ms insert=140ms total=238ms",
+      "duration_ms": 22110,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:23.603Z"
+    },
+    {
+      "phase": "Batch Timing | worker=85ms insert=147ms total=232ms",
+      "duration_ms": 22170,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:23.663Z"
+    },
+    {
+      "phase": "Batch Timing | worker=82ms insert=94ms total=176ms",
+      "duration_ms": 22177,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:23.671Z"
+    },
+    {
+      "phase": "Batch Timing | worker=81ms insert=141ms total=222ms",
+      "duration_ms": 22382,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:23.875Z"
+    },
+    {
+      "phase": "Batch Timing | worker=81ms insert=124ms total=205ms",
+      "duration_ms": 22427,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:23.920Z"
+    },
+    {
+      "phase": "Batch Timing | worker=100ms insert=129ms total=229ms",
+      "duration_ms": 22510,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:24.003Z"
+    },
+    {
+      "phase": "Batch Timing | worker=103ms insert=135ms total=238ms",
+      "duration_ms": 22679,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:24.172Z"
+    },
+    {
+      "phase": "Batch Timing | worker=88ms insert=124ms total=212ms",
+      "duration_ms": 22711,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:24.205Z"
+    },
+    {
+      "phase": "Batch Timing | worker=104ms insert=145ms total=249ms",
+      "duration_ms": 22806,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:24.300Z"
+    },
+    {
+      "phase": "Batch Timing | worker=156ms insert=158ms total=314ms",
+      "duration_ms": 22938,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:24.431Z"
+    },
+    {
+      "phase": "Batch Timing | worker=111ms insert=160ms total=271ms",
+      "duration_ms": 22960,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:24.453Z"
+    },
+    {
+      "phase": "Batch Timing | worker=88ms insert=152ms total=240ms",
+      "duration_ms": 23053,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:24.546Z"
+    },
+    {
+      "phase": "Batch Timing | worker=73ms insert=155ms total=228ms",
+      "duration_ms": 23107,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:24.601Z"
+    },
+    {
+      "phase": "Batch Timing | worker=292ms insert=140ms total=432ms",
+      "duration_ms": 23185,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:24.678Z"
+    },
+    {
+      "phase": "Batch Timing | worker=111ms insert=136ms total=247ms",
+      "duration_ms": 23199,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:24.692Z"
+    },
+    {
+      "phase": "Batch Timing | worker=87ms insert=144ms total=231ms",
+      "duration_ms": 23251,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:24.744Z"
+    },
+    {
+      "phase": "Batch Timing | worker=71ms insert=122ms total=193ms",
+      "duration_ms": 23277,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:24.770Z"
+    },
+    {
+      "phase": "Batch Timing | worker=90ms insert=135ms total=225ms",
+      "duration_ms": 23467,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:24.960Z"
+    },
+    {
+      "phase": "Batch Timing | worker=96ms insert=135ms total=231ms",
+      "duration_ms": 23533,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:25.026Z"
+    },
+    {
+      "phase": "Batch Timing | worker=91ms insert=144ms total=235ms",
+      "duration_ms": 23688,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:25.182Z"
+    },
+    {
+      "phase": "Batch Timing | worker=81ms insert=139ms total=220ms",
+      "duration_ms": 23730,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:25.223Z"
+    },
+    {
+      "phase": "Batch Timing | worker=103ms insert=157ms total=260ms",
+      "duration_ms": 23829,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:25.322Z"
+    },
+    {
+      "phase": "Batch Timing | worker=88ms insert=147ms total=235ms",
+      "duration_ms": 23865,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:25.358Z"
+    },
+    {
+      "phase": "Batch Timing | worker=90ms insert=166ms total=256ms",
+      "duration_ms": 23946,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:25.440Z"
+    },
+    {
+      "phase": "Batch Timing | worker=88ms insert=151ms total=239ms",
+      "duration_ms": 23993,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:25.487Z"
+    },
+    {
+      "phase": "Batch Timing | worker=104ms insert=159ms total=263ms",
+      "duration_ms": 24082,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:25.575Z"
+    },
+    {
+      "phase": "Batch Timing | worker=92ms insert=140ms total=232ms",
+      "duration_ms": 24115,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:25.609Z"
+    },
+    {
+      "phase": "Batch Timing | worker=90ms insert=132ms total=222ms",
+      "duration_ms": 24170,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:25.664Z"
+    },
+    {
+      "phase": "Batch Timing | worker=83ms insert=138ms total=221ms",
+      "duration_ms": 24233,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:25.726Z"
+    },
+    {
+      "phase": "Batch Timing | worker=73ms insert=121ms total=194ms",
+      "duration_ms": 24267,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:25.761Z"
+    },
+    {
+      "phase": "Batch Timing | worker=85ms insert=138ms total=223ms",
+      "duration_ms": 24446,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:25.940Z"
+    },
+    {
+      "phase": "Batch Timing | worker=79ms insert=135ms total=214ms",
+      "duration_ms": 24498,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:25.991Z"
+    },
+    {
+      "phase": "Batch Timing | worker=81ms insert=148ms total=229ms",
+      "duration_ms": 24572,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:26.066Z"
+    },
+    {
+      "phase": "Batch Timing | worker=80ms insert=137ms total=217ms",
+      "duration_ms": 24615,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:26.108Z"
+    },
+    {
+      "phase": "Batch Timing | worker=83ms insert=134ms total=217ms",
+      "duration_ms": 24675,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:26.169Z"
+    },
+    {
+      "phase": "Batch Timing | worker=97ms insert=140ms total=237ms",
+      "duration_ms": 24762,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:26.256Z"
+    },
+    {
+      "phase": "Batch Timing | worker=107ms insert=173ms total=280ms",
+      "duration_ms": 24865,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:26.359Z"
+    },
+    {
+      "phase": "Batch Timing | worker=89ms insert=143ms total=232ms",
+      "duration_ms": 24885,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:26.378Z"
+    },
+    {
+      "phase": "Batch Timing | worker=94ms insert=150ms total=244ms",
+      "duration_ms": 24963,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:26.456Z"
+    },
+    {
+      "phase": "Batch Timing | worker=84ms insert=131ms total=215ms",
+      "duration_ms": 25003,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:26.497Z"
+    },
+    {
+      "phase": "Batch Timing | worker=68ms insert=131ms total=199ms",
+      "duration_ms": 25050,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:26.543Z"
+    },
+    {
+      "phase": "Batch Timing | worker=81ms insert=139ms total=220ms",
+      "duration_ms": 25237,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:26.730Z"
+    },
+    {
+      "phase": "Batch Timing | worker=77ms insert=141ms total=218ms",
+      "duration_ms": 25299,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:26.792Z"
+    },
+    {
+      "phase": "Batch Timing | worker=76ms insert=157ms total=233ms",
+      "duration_ms": 25369,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:26.862Z"
+    },
+    {
+      "phase": "Batch Timing | worker=80ms insert=146ms total=226ms",
+      "duration_ms": 25417,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:26.910Z"
+    },
+    {
+      "phase": "Batch Timing | worker=105ms insert=132ms total=237ms",
+      "duration_ms": 25489,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:26.982Z"
+    },
+    {
+      "phase": "Batch Timing | worker=87ms insert=146ms total=233ms",
+      "duration_ms": 25555,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:27.049Z"
+    },
+    {
+      "phase": "Batch Timing | worker=85ms insert=184ms total=269ms",
+      "duration_ms": 25654,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:27.147Z"
+    },
+    {
+      "phase": "Batch Timing | worker=88ms insert=151ms total=239ms",
+      "duration_ms": 25685,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:27.178Z"
+    },
+    {
+      "phase": "Batch Timing | worker=90ms insert=144ms total=234ms",
+      "duration_ms": 25746,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:27.240Z"
+    },
+    {
+      "phase": "Batch Timing | worker=94ms insert=141ms total=235ms",
+      "duration_ms": 25809,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:27.303Z"
+    },
+    {
+      "phase": "Batch Timing | worker=91ms insert=155ms total=246ms",
+      "duration_ms": 25885,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:27.378Z"
+    },
+    {
+      "phase": "Batch Timing | worker=84ms insert=146ms total=230ms",
+      "duration_ms": 25933,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:27.426Z"
+    },
+    {
+      "phase": "Batch Timing | worker=101ms insert=160ms total=261ms",
+      "duration_ms": 26021,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:27.515Z"
+    },
+    {
+      "phase": "Batch Timing | worker=81ms insert=155ms total=236ms",
+      "duration_ms": 26059,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:27.552Z"
+    },
+    {
+      "phase": "Batch Timing | worker=96ms insert=140ms total=236ms",
+      "duration_ms": 26121,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:27.614Z"
+    },
+    {
+      "phase": "Batch Timing | worker=84ms insert=148ms total=232ms",
+      "duration_ms": 26182,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:27.676Z"
+    },
+    {
+      "phase": "Batch Timing | worker=89ms insert=157ms total=246ms",
+      "duration_ms": 26259,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:27.752Z"
+    },
+    {
+      "phase": "Batch Timing | worker=88ms insert=135ms total=223ms",
+      "duration_ms": 26299,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:27.793Z"
+    },
+    {
+      "phase": "Batch Timing | worker=88ms insert=123ms total=211ms",
+      "duration_ms": 26347,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:27.841Z"
+    },
+    {
+      "phase": "Batch Timing | worker=64ms insert=111ms total=175ms",
+      "duration_ms": 26377,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:27.870Z"
+    },
+    {
+      "phase": "Batch Timing | worker=81ms insert=159ms total=240ms",
+      "duration_ms": 26603,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:28.096Z"
+    },
+    {
+      "phase": "Batch Timing | worker=78ms insert=142ms total=220ms",
+      "duration_ms": 26643,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:28.137Z"
+    },
+    {
+      "phase": "Batch Timing | worker=78ms insert=146ms total=224ms",
+      "duration_ms": 26703,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:28.196Z"
+    },
+    {
+      "phase": "Batch Timing | worker=77ms insert=158ms total=235ms",
+      "duration_ms": 26771,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:28.264Z"
+    },
+    {
+      "phase": "Batch Timing | worker=85ms insert=156ms total=241ms",
+      "duration_ms": 26835,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:28.329Z"
+    },
+    {
+      "phase": "Batch Timing | worker=105ms insert=138ms total=243ms",
+      "duration_ms": 26901,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:28.395Z"
+    },
+    {
+      "phase": "Batch Timing | worker=95ms insert=145ms total=240ms",
+      "duration_ms": 26961,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:28.454Z"
+    },
+    {
+      "phase": "Batch Timing | worker=74ms insert=135ms total=209ms",
+      "duration_ms": 26994,
+      "records": 2000,
+      "timestamp": "2025-08-25T00:30:28.488Z"
+    },
+    {
+      "phase": "Batch Timing | worker=36ms insert=25ms total=61ms",
+      "duration_ms": 27010,
+      "records": 378,
+      "timestamp": "2025-08-25T00:30:28.503Z"
+    },
+    {
+      "phase": "Edge Processing",
+      "duration_ms": 27010,
+      "records": 646378,
+      "timestamp": "2025-08-25T00:30:28.503Z"
+    }
+  ],
+  "end_time": "2025-08-25T00:30:28.504Z",
+  "total_duration_ms": 27011,
+  "total_records": 646378,
+  "records_per_second": 23930.17659472067,
+  "memory_peak_mb": 110.94461822509766,
+  "memory_end_mb": 41.87786865234375,
+  "cpu_user_ms": 19016,
+  "cpu_system_ms": 2828,
+  "error_count": 0,
+  "extract_duration_ms": 0,
+  "transform_duration_ms": 0,
+  "load_duration_ms": 0
+}

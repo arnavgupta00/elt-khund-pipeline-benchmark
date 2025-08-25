@@ -1,4 +1,5 @@
-import axios, { AxiosInstance } from 'axios';
+import axios from 'axios';
+type AxiosInstance = ReturnType<typeof axios.create>;
 import http from 'http';
 import https from 'https';
 import { gzipSync } from 'zlib';
@@ -24,7 +25,7 @@ export class Case4aEdge {
   private readonly INSERT_CHUNK_SIZE: number;   // rows per multi-VALUES insert
   private readonly SOURCE_PK: string;           // keyset column (e.g. id or user_id)
 
-  private httpClient: AxiosInstance;
+  private httpClient:  AxiosInstance ;
 
   // DB queue to respect DB_CONCURRENCY
   private dbQueue: Array<() => Promise<any>> = [];
@@ -41,7 +42,7 @@ export class Case4aEdge {
     this.INSERT_CHUNK_SIZE = parseInt(process.env.CASE4A_INSERT_CHUNK_SIZE || '1000', 10);
 
     // Prefer a monotonic bigint primary key; override if your source pk differs
-    this.SOURCE_PK = process.env.CASE4A_SOURCE_PK || 'id';
+    this.SOURCE_PK = process.env.CASE4A_SOURCE_PK || 'Id';
 
     // --- keep-alive axios client with gzip request bodies ---
     const token = process.env.CLOUDFLARE_WORKER_TOKEN || process.env.WORKER_AUTH_TOKEN || '';
@@ -111,7 +112,8 @@ export class Case4aEdge {
         const take = Math.min(this.BATCH_SIZE, hardCapRemaining);
         const rows = await this.fetchBatchAfterPk(lastPk, take);
         if (rows.length === 0) break;
-        lastPk = rows[rows.length - 1][this.SOURCE_PK];
+        const pkKey = this.SOURCE_PK as keyof SourceUser;
+        lastPk = rows[rows.length - 1][pkKey];
         hardCapRemaining -= rows.length;
 
         // throttle worker concurrency
@@ -172,10 +174,13 @@ export class Case4aEdge {
    */
   private async fetchBatchAfterPk(lastPk: any, limit: number): Promise<SourceUser[]> {
     // Note: parameter positions differ depending on whether lastPk is present.
+    // Quote the column name to handle case-sensitive identifiers like "Id"
+    const quotedPK = `"${this.SOURCE_PK}"`;
+    
     if (lastPk == null) {
       const sql = `
         SELECT * FROM ${INPUT_TABLE_NAME}
-        ORDER BY ${this.SOURCE_PK}
+        ORDER BY ${quotedPK}
         LIMIT $1
       `;
       const res = await sourcePool.query(sql, [limit]);
@@ -183,8 +188,8 @@ export class Case4aEdge {
     } else {
       const sql = `
         SELECT * FROM ${INPUT_TABLE_NAME}
-        WHERE ${this.SOURCE_PK} > $1
-        ORDER BY ${this.SOURCE_PK}
+        WHERE ${quotedPK} > $1
+        ORDER BY ${quotedPK}
         LIMIT $2
       `;
       const res = await sourcePool.query(sql, [lastPk, limit]);
