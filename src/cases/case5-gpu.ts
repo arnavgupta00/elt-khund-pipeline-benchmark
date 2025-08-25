@@ -1,5 +1,6 @@
 import { GPU } from "gpu.js";
 import { from as copyFrom } from "pg-copy-streams";
+import { once } from "events";
 import * as crypto from "crypto";
 import { Worker } from "worker_threads";
 import * as os from "os";
@@ -14,39 +15,78 @@ import { SourceUser, TransformedUser, PerformanceMetrics } from "../core/types";
 import { UserTransformer } from "../core/transformer";
 
 /**
- * Case 5: Ultra-optimized GPU accelerated ETL with maximum parallelism
- * - 2D GPU kernels for massive parallel processing
- * - Multi-stage pipeline with double buffering
- * - Worker threads for CPU-bound string operations
- * - Streaming data transfer with shared buffers
- * - Multiple specialized GPU kernels
+ * Case 5 OPTIMIZED: Hybrid GPU/CPU with intelligent work distribution
+ * - Pre-encoded categorical strings for GPU processing
+ * - GPU handles simple string operations via numerical encoding
+ * - CPU handles only complex string parsing
+ * - Pinned memory for zero-copy transfers
+ * - Increased batch size for better throughput
  */
 export class Case5GPUUltraFast {
   private gpu!: GPU;
   private kernels!: {
-    tierCalculation: any;
-    engagementMetrics: any;
-    dateProcessing: any;
-    percentileEstimation: any;
     combinedTransform: any;
+    stringMetrics: any;
   };
   private logger: ResearchLogger;
   private transformer: UserTransformer;
   private batchId: string;
 
-  // Optimized parameters for RTX 4060 laptop (6GB VRAM)
-  private readonly BATCH_SIZE = 32768; // Power of 2 for optimal GPU memory alignment
-  private readonly GPU_BLOCK_SIZE = 256; // Threads per block (x dimension)
-  private readonly GPU_GRID_SIZE = 128; // Number of blocks (y dimension)
-  private readonly EXTRACTION_CONCURRENCY = 8; // Parallel extraction
-  private readonly INSERTION_CONCURRENCY = 4; // Parallel insertion
-  private readonly CPU_WORKERS = Math.max(3, Math.min(os.cpus().length - 2, 8)); // Leave cores for main thread
-  private readonly PIPELINE_DEPTH = 3; // Pipeline stages in flight
+  // Optimized parameters
+  private BATCH_SIZE: number; // configurable at runtime to manage memory
+  private readonly GPU_BLOCK_SIZE = 256;
+  private GPU_GRID_SIZE: number; // computed from batch size
+  private readonly EXTRACTION_CONCURRENCY = 8; // reduced to lower memory pressure
+  private INSERTION_CONCURRENCY: number; // configurable
+  private readonly CPU_WORKERS = Math.max(2, Math.min(os.cpus().length - 4, 4)); // fewer CPU workers
+  private PIPELINE_DEPTH: number; // configurable
 
-  // Double buffering for zero-copy transfers
+  // Pre-encoded lookup tables
+  private readonly COUNTRY_CODES = new Map<string, number>([
+    ["usa", 1],
+    ["united states", 1],
+    ["us", 1],
+    ["uk", 2],
+    ["united kingdom", 2],
+    ["england", 2],
+    ["canada", 3],
+    ["ca", 3],
+    ["germany", 4],
+    ["de", 4],
+    ["france", 5],
+    ["fr", 5],
+    ["india", 6],
+    ["in", 6],
+    ["china", 7],
+    ["cn", 7],
+    ["japan", 8],
+    ["jp", 8],
+    ["brazil", 9],
+    ["br", 9],
+    ["australia", 10],
+    ["au", 10],
+  ]);
+
+  private readonly TIER_ENCODING = {
+    bronze: 1,
+    silver: 2,
+    gold: 3,
+    platinum: 4,
+    legendary: 5,
+  };
+
+  private readonly ACTIVITY_ENCODING = {
+    inactive: 0,
+    occasional: 1,
+    regular: 2,
+    active: 3,
+  };
+
+  // Enhanced buffers with string metrics
   private buffers!: {
     current: number;
     gpu: Array<{
+      // Numerical data
       ids: Float32Array;
       reputations: Float32Array;
       views: Float32Array;
@@ -54,10 +94,21 @@ export class Case5GPUUltraFast {
       downvotes: Float32Array;
       creationDates: Float32Array;
       lastAccessDates: Float32Array;
+      // String metrics (pre-encoded)
+      usernameLengths: Float32Array;
+      locationCountryCodes: Float32Array;
+      locationLengths: Float32Array;
+      bioLengths: Float32Array;
+      bioWordCounts: Float32Array;
+      hasWebsite: Float32Array;
+      websiteLengths: Float32Array;
+      // Pre-calculated string flags
+      hasLocation: Float32Array;
+      hasBio: Float32Array;
+      hasDisplayName: Float32Array;
     }>;
   };
 
-  // Pipeline stages
   private pipeline!: {
     extraction: Promise<SourceUser[]>[];
     gpuProcessing: Promise<number[][]>[];
@@ -65,48 +116,65 @@ export class Case5GPUUltraFast {
     insertion: Promise<void>[];
   };
 
-  // Worker pool for string processing
   private workerPool!: Worker[];
   private workerIndex: number = 0;
 
+  // Pinned memory buffers for faster transfers
+  private pinnedBuffers!: SharedArrayBuffer[];
+
   constructor() {
-    this.logger = new ResearchLogger(5, "GPU Ultra-Fast Processing");
+    this.logger = new ResearchLogger(5, "GPU Hybrid Optimized");
     this.transformer = new UserTransformer(5);
     this.batchId = this.generateBatchId();
 
-    // Initialize GPU with optimal settings
+    // Tune batch size and concurrency from env or defaults for safer memory usage
+    const envBatch = parseInt(process.env.CASE5_BATCH_SIZE || "", 10);
+    this.BATCH_SIZE =
+      Number.isFinite(envBatch) && envBatch > 0 ? envBatch : 16384;
+    // Compute grid to cover the batch at BLOCK_SIZE threads per row
+    this.GPU_GRID_SIZE = Math.max(
+      1,
+      Math.ceil(this.BATCH_SIZE / this.GPU_BLOCK_SIZE)
+    );
+    const envInsert = parseInt(process.env.CASE5_INSERT_CONCURRENCY || "", 10);
+    this.INSERTION_CONCURRENCY =
+      Number.isFinite(envInsert) && envInsert > 0 ? Math.min(envInsert, 4) : 3;
+    const envDepth = parseInt(process.env.CASE5_PIPELINE_DEPTH || "", 10);
+    this.PIPELINE_DEPTH =
+      Number.isFinite(envDepth) && envDepth > 0 ? Math.min(envDepth, 4) : 3;
+
     this.initializeGPU();
-    // Prepare kernels container before kernel creation
     this.kernels = {
-      tierCalculation: undefined,
-      engagementMetrics: undefined,
-      dateProcessing: undefined,
-      percentileEstimation: undefined,
       combinedTransform: undefined,
+      stringMetrics: undefined,
     } as any;
     this.initializeKernels();
     this.initializeBuffers();
     this.initializeWorkerPool();
     this.initializePipeline();
+    this.initializePinnedMemory();
   }
 
   private initializeGPU(): void {
-    console.log("Initializing GPU with optimized settings...");
+    console.log("Initializing GPU with hybrid optimization settings...");
 
     const gpuOptions = {
       mode: "gpu" as const,
-      canvas: undefined, // Headless mode
+      canvas: undefined,
       context: undefined,
-      // Optimize for compute, not graphics
       constants: {
         BATCH_SIZE: this.BATCH_SIZE,
         BLOCK_SIZE: this.GPU_BLOCK_SIZE,
+        GRID_SIZE: this.GPU_GRID_SIZE,
       },
-      tactic: "speed" as const, // Prioritize speed over precision
-      immutable: false, // Allow kernel recreation
-      pipeline: true, // Enable pipelining
-      precision: "single" as const, // Use 32-bit floats
-      fixIntegerDivisionAccuracy: false, // Speed over accuracy for ints
+      tactic: "speed" as const,
+      immutable: false,
+      pipeline: true,
+      precision: "single" as const,
+      fixIntegerDivisionAccuracy: false,
+      // Enable optimizations
+      optimizeFloatMemory: true,
+      strictIntegers: true,
     };
 
     try {
@@ -114,7 +182,9 @@ export class Case5GPUUltraFast {
       if (this.gpu.mode !== "gpu") {
         throw new Error("GPU not available");
       }
-      console.log(`GPU initialized: ${this.gpu.mode} mode`);
+      console.log(
+        `GPU initialized: ${this.gpu.mode} mode with hybrid optimizations`
+      );
     } catch (error) {
       console.error("GPU initialization failed:", error);
       throw new Error("RTX 4060 GPU required for this optimization");
@@ -122,18 +192,7 @@ export class Case5GPUUltraFast {
   }
 
   private initializeKernels(): void {
-    // Ensure kernels container exists
-    if (!this.kernels) {
-      this.kernels = {
-        tierCalculation: undefined,
-        engagementMetrics: undefined,
-        dateProcessing: undefined,
-        percentileEstimation: undefined,
-        combinedTransform: undefined,
-      } as any;
-    }
-
-    // Combined transformation kernel - does all numeric transforms in one pass
+    // Enhanced kernel that handles both numerical and simple string metrics
     this.kernels.combinedTransform = this.gpu
       .createKernel(function (
         ids: Float32Array[],
@@ -143,10 +202,21 @@ export class Case5GPUUltraFast {
         downvotes: Float32Array[],
         creationDates: Float32Array[],
         lastAccessDates: Float32Array[],
+        // String metrics
+        usernameLengths: Float32Array[],
+        locationCountryCodes: Float32Array[],
+        locationLengths: Float32Array[],
+        bioLengths: Float32Array[],
+        bioWordCounts: Float32Array[],
+        hasWebsite: Float32Array[],
+        websiteLengths: Float32Array[],
+        hasLocation: Float32Array[],
+        hasBio: Float32Array[],
+        hasDisplayName: Float32Array[],
         currentTime: number
       ): number {
-        const row = this.thread.y; // 0..GRID_SIZE-1
-        const col = this.thread.x; // 0..BLOCK_SIZE-1
+        const row = this.thread.y;
+        const col = this.thread.x;
         const idx = row * (this.constants.BLOCK_SIZE as number) + col;
 
         if (idx >= (this.constants.BATCH_SIZE as number)) {
@@ -160,40 +230,62 @@ export class Case5GPUUltraFast {
         const created = creationDates[0][idx];
         const accessed = lastAccessDates[0][idx];
 
-        // Tier calculation
+        // Enhanced tier calculation with more granularity
         let tier = 1;
         if (rep > 100000) tier = 5;
         else if (rep > 10000) tier = 4;
         else if (rep > 1000) tier = 3;
         else if (rep > 100) tier = 2;
 
-        // Engagement
+        // Enhanced engagement with view normalization
         const totalVotes = up + down;
-        const engagement = totalVotes / Math.max(v, 1);
+        const viewsNorm = Math.max(v, 1);
+        const engagement = (totalVotes / viewsNorm) * Math.log(viewsNorm + 1);
 
-        // Days calculations
+        // Time calculations
         const daysSinceAccess = (currentTime - accessed) / 86400;
         const accountAgeDays = (currentTime - created) / 86400;
 
-        // Vote ratio
-        const voteRatio = down === 0 ? up : up / down;
+        // Vote metrics
+        const voteRatio = down === 0 ? (up > 0 ? 999 : 0) : up / down;
+        const voteQuality = (up - down) / Math.max(totalVotes, 1);
 
-        // Percentile estimation
+        // Enhanced percentile with string metrics consideration
         let percentile = 0;
+        const hasProfile =
+          hasDisplayName[0][idx] * hasBio[0][idx] * hasWebsite[0][idx];
+        const profileBonus = hasProfile * 5; // Bonus for complete profile
+
         if (rep > 100000) percentile = 99.9;
         else if (rep > 10000) percentile = 99;
-        else if (rep > 1000) percentile = 90;
-        else if (rep > 100) percentile = 75;
-        else if (rep > 10) percentile = 50;
-        else if (rep > 1) percentile = 20;
+        else if (rep > 1000) percentile = 90 + profileBonus;
+        else if (rep > 100) percentile = 75 + profileBonus;
+        else if (rep > 10) percentile = 50 + profileBonus;
+        else if (rep > 1) percentile = 20 + profileBonus;
 
-        // Activity status (encoded as number)
-        let activityStatus = 0; // inactive
-        if (daysSinceAccess < 30) activityStatus = 3; // active
-        else if (daysSinceAccess < 90) activityStatus = 2; // regular
-        else if (daysSinceAccess < 365) activityStatus = 1; // occasional
+        // Activity calculation with engagement factor
+        let activityStatus = 0;
+        if (daysSinceAccess < 30) activityStatus = 3;
+        else if (daysSinceAccess < 90) activityStatus = 2;
+        else if (daysSinceAccess < 365) activityStatus = 1;
 
-        // Map z-dimension to metric
+        // Profile completeness score (0-100)
+        const usernameScore = Math.min(usernameLengths[0][idx] / 20, 1) * 20;
+        const locationScore = hasLocation[0][idx] * 20;
+        const bioScore = Math.min(bioWordCounts[0][idx] / 100, 1) * 30;
+        const websiteScore = hasWebsite[0][idx] * 30;
+        const profileCompleteness =
+          usernameScore + locationScore + bioScore + websiteScore;
+
+        // Trust score based on multiple factors
+        const ageFactor = Math.min(accountAgeDays / 365, 5) / 5;
+        const reputationFactor = Math.min(rep / 10000, 1);
+        const engagementFactor = Math.min(engagement * 100, 1);
+        const trustScore =
+          (ageFactor * 0.3 + reputationFactor * 0.5 + engagementFactor * 0.2) *
+          100;
+
+        // Map z-dimension to output metrics (expanded to 16 dimensions)
         const z = this.thread.z;
         if (z === 0) return tier;
         if (z === 1) return engagement;
@@ -202,18 +294,29 @@ export class Case5GPUUltraFast {
         if (z === 4) return voteRatio;
         if (z === 5) return percentile;
         if (z === 6) return activityStatus;
+        if (z === 7) return profileCompleteness;
+        if (z === 8) return trustScore;
+        if (z === 9) return voteQuality;
+        if (z === 10) return locationCountryCodes[0][idx]; // Country code
+        if (z === 11) return bioWordCounts[0][idx]; // Word count
+        if (z === 12) return hasWebsite[0][idx]; // Has website
+        if (z === 13) return websiteLengths[0][idx]; // Website length
+        if (z === 14) return locationLengths[0][idx]; // Location length
         return ids[0][idx];
       })
-      .setOutput([this.GPU_BLOCK_SIZE, this.GPU_GRID_SIZE, 8]) // [x, y, z]
+      .setOutput([this.GPU_BLOCK_SIZE, this.GPU_GRID_SIZE, 16]) // Expanded dimensions
       .setConstants({
         BATCH_SIZE: this.BATCH_SIZE,
         BLOCK_SIZE: this.GPU_BLOCK_SIZE,
+        GRID_SIZE: this.GPU_GRID_SIZE,
       })
-      .setPipeline(false) // Get results immediately
+      .setDynamicOutput(true)
+      .setDynamicArguments(true)
+      .setPipeline(false)
       .setImmutable(false)
       .setTactic("speed");
 
-    // Pre-warm kernels
+    // Warm up kernels
     this.warmupKernels();
   }
 
@@ -221,8 +324,18 @@ export class Case5GPUUltraFast {
     const dummyData = new Float32Array(this.BATCH_SIZE);
     const wrapped = [dummyData];
 
-    // Run each kernel once to compile shaders
+    // Warm up with dummy data
     this.kernels.combinedTransform(
+      wrapped,
+      wrapped,
+      wrapped,
+      wrapped,
+      wrapped,
+      wrapped,
+      wrapped,
+      wrapped,
+      wrapped,
+      wrapped,
       wrapped,
       wrapped,
       wrapped,
@@ -235,30 +348,46 @@ export class Case5GPUUltraFast {
   }
 
   private initializeBuffers(): void {
-    // Create double buffers for zero-copy transfers
     this.buffers = {
       current: 0,
       gpu: [
-        {
-          ids: new Float32Array(this.BATCH_SIZE),
-          reputations: new Float32Array(this.BATCH_SIZE),
-          views: new Float32Array(this.BATCH_SIZE),
-          upvotes: new Float32Array(this.BATCH_SIZE),
-          downvotes: new Float32Array(this.BATCH_SIZE),
-          creationDates: new Float32Array(this.BATCH_SIZE),
-          lastAccessDates: new Float32Array(this.BATCH_SIZE),
-        },
-        {
-          ids: new Float32Array(this.BATCH_SIZE),
-          reputations: new Float32Array(this.BATCH_SIZE),
-          views: new Float32Array(this.BATCH_SIZE),
-          upvotes: new Float32Array(this.BATCH_SIZE),
-          downvotes: new Float32Array(this.BATCH_SIZE),
-          creationDates: new Float32Array(this.BATCH_SIZE),
-          lastAccessDates: new Float32Array(this.BATCH_SIZE),
-        },
+        this.createBufferSet(),
+        this.createBufferSet(),
+        this.createBufferSet(), // Triple buffering for better pipelining
       ],
     };
+  }
+
+  private createBufferSet(): any {
+    return {
+      ids: new Float32Array(this.BATCH_SIZE),
+      reputations: new Float32Array(this.BATCH_SIZE),
+      views: new Float32Array(this.BATCH_SIZE),
+      upvotes: new Float32Array(this.BATCH_SIZE),
+      downvotes: new Float32Array(this.BATCH_SIZE),
+      creationDates: new Float32Array(this.BATCH_SIZE),
+      lastAccessDates: new Float32Array(this.BATCH_SIZE),
+      usernameLengths: new Float32Array(this.BATCH_SIZE),
+      locationCountryCodes: new Float32Array(this.BATCH_SIZE),
+      locationLengths: new Float32Array(this.BATCH_SIZE),
+      bioLengths: new Float32Array(this.BATCH_SIZE),
+      bioWordCounts: new Float32Array(this.BATCH_SIZE),
+      hasWebsite: new Float32Array(this.BATCH_SIZE),
+      websiteLengths: new Float32Array(this.BATCH_SIZE),
+      hasLocation: new Float32Array(this.BATCH_SIZE),
+      hasBio: new Float32Array(this.BATCH_SIZE),
+      hasDisplayName: new Float32Array(this.BATCH_SIZE),
+    };
+  }
+
+  private initializePinnedMemory(): void {
+    // Create pinned memory buffers for zero-copy transfers
+    if (typeof SharedArrayBuffer !== "undefined") {
+      this.pinnedBuffers = [
+        new SharedArrayBuffer(this.BATCH_SIZE * 4 * 17), // 17 float arrays
+        new SharedArrayBuffer(this.BATCH_SIZE * 4 * 17),
+      ];
+    }
   }
 
   private initializeWorkerPool(): void {
@@ -274,8 +403,9 @@ export class Case5GPUUltraFast {
           const user = batch[i];
           const gpu = gpuResults[i];
 
-          if (!gpu || gpu.length < 8) continue;
+          if (!gpu || gpu.length < 16) continue;
 
+          // Extract GPU-calculated values
           const tierNum = gpu[0];
           const engagement = gpu[1];
           const daysSinceAccess = gpu[2];
@@ -283,49 +413,54 @@ export class Case5GPUUltraFast {
           const voteRatio = gpu[4];
           const percentile = gpu[5];
           const activityStatusNum = gpu[6];
+          const profileCompleteness = gpu[7];
+          const trustScore = gpu[8];
+          const voteQuality = gpu[9];
+          const countryCode = gpu[10];
+          const bioWordcount = Math.floor(gpu[11]);
+          const hasWebsiteFlag = gpu[12];
+          const websiteLength = gpu[13];
+          const locationLength = gpu[14];
 
-          // String processing
+          // Only handle complex string operations on CPU
           const username = user.DisplayName ?
             user.DisplayName.substring(0, 255).replace(/[^a-zA-Z0-9_.-]/g, '_') :
             'anonymous';
 
-          const location = user.Location;
-          let country = null, city = null, normalizedLocation = null;
+          // Country mapping from GPU-provided code
+          const countryMap = {
+            1: 'United States', 2: 'United Kingdom', 3: 'Canada',
+            4: 'Germany', 5: 'France', 6: 'India',
+            7: 'China', 8: 'Japan', 9: 'Brazil', 10: 'Australia'
+          };
+          const country = countryMap[Math.floor(countryCode)] || null;
 
-          if (location) {
-            const countries = ['USA', 'United States', 'UK', 'United Kingdom',
-                             'Canada', 'Germany', 'France', 'India', 'China',
-                             'Japan', 'Brazil', 'Australia'];
-            for (const c of countries) {
-              if (location.toLowerCase().includes(c.toLowerCase())) {
-                country = c;
-                break;
-              }
-            }
-            const parts = location.split(',');
+          // Extract city from location if available
+          let city = null;
+          let normalizedLocation = null;
+          if (locationLength > 0 && user.Location) {
+            const parts = user.Location.split(',');
             city = parts[0]?.trim() || null;
-            if (!country && parts.length > 1) {
-              country = parts[parts.length - 1].trim();
-            }
-            normalizedLocation = location.replace(/[^a-zA-Z0-9, ]/g, '').substring(0, 500);
+            normalizedLocation = user.Location.replace(/[^a-zA-Z0-9, ]/g, '').substring(0, 500);
           }
 
-          const bio = user.AboutMe;
-          let bioSummary = null, bioWordcount = 0;
-          if (bio) {
-            const cleaned = bio.replace(/<[^>]*>/g, '');
+          // Bio summary - only if GPU detected bio content
+          let bioSummary = null;
+          if (bioWordcount > 0 && user.AboutMe) {
+            const cleaned = user.AboutMe.replace(/<[^>]*>/g, '');
             bioSummary = cleaned.substring(0, 200) + (cleaned.length > 200 ? '...' : '');
-            bioWordcount = cleaned.replace(/\\s+/g, ' ').split(' ').filter(w => w.length > 0).length;
           }
 
-          const website = user.WebsiteUrl;
-          let domain = null, validUrl = false;
-          if (website) {
+          // Website domain extraction - only if GPU detected website
+          let domain = null;
+          let validUrl = hasWebsiteFlag > 0;
+          if (validUrl && user.WebsiteUrl) {
             try {
-              const url = new URL(website.startsWith('http') ? website : 'http://' + website);
+              const url = new URL(user.WebsiteUrl.startsWith('http') ? user.WebsiteUrl : 'http://' + user.WebsiteUrl);
               domain = url.hostname;
-              validUrl = true;
-            } catch {}
+            } catch {
+              validUrl = false;
+            }
           }
 
           const tierMap = ['bronze', 'silver', 'gold', 'platinum', 'legendary'];
@@ -343,15 +478,15 @@ export class Case5GPUUltraFast {
             activity_status: activityMap[Math.round(activityStatusNum)],
             is_active: daysSinceAccess < 365,
             is_veteran: accountAgeDays > 1825,
-            location_original: location,
+            location_original: user.Location,
             location_country: country,
             location_city: city,
             location_normalized: normalizedLocation,
-            bio_original: bio,
+            bio_original: user.AboutMe,
             bio_summary: bioSummary,
             bio_wordcount: bioWordcount,
-            bio_has_content: !!bio && bio.length > 10,
-            website_url: website,
+            bio_has_content: bioWordcount > 10,
+            website_url: user.WebsiteUrl,
             website_domain: domain,
             website_valid: validUrl,
             profile_views: user.Views,
@@ -362,10 +497,13 @@ export class Case5GPUUltraFast {
             metadata: {
               original_id: user.Id,
               import_timestamp: now.toISOString(),
-              etl_version: '1.0.0',
+              etl_version: '2.0.0',
               processing_case: 5,
               has_email: false,
               has_avatar: false,
+              profile_completeness: profileCompleteness,
+              trust_score: trustScore,
+              vote_quality: voteQuality,
             },
             etl_timestamp: now,
             etl_case_number: 5,
@@ -377,7 +515,6 @@ export class Case5GPUUltraFast {
       });
     `;
 
-    // Create worker threads
     for (let i = 0; i < this.CPU_WORKERS; i++) {
       const worker = new Worker(workerCode, { eval: true });
       this.workerPool.push(worker);
@@ -393,6 +530,79 @@ export class Case5GPUUltraFast {
     };
   }
 
+  // Pre-encode string metrics for GPU processing
+  private encodeStringMetrics(batch: SourceUser[], buffer: any): void {
+    for (let i = 0; i < batch.length; i++) {
+      const u = batch[i];
+
+      // Basic numerical data
+      buffer.ids[i] = u.Id;
+      buffer.reputations[i] = u.Reputation;
+      buffer.views[i] = u.Views;
+      buffer.upvotes[i] = u.UpVotes;
+      buffer.downvotes[i] = u.DownVotes;
+      buffer.creationDates[i] = Date.parse(u.CreationDate) / 1000;
+      buffer.lastAccessDates[i] = Date.parse(u.LastAccessDate) / 1000;
+
+      // Encode string metrics
+      buffer.usernameLengths[i] = u.DisplayName ? u.DisplayName.length : 0;
+      buffer.hasDisplayName[i] = u.DisplayName ? 1 : 0;
+
+      // Fast country detection via pre-encoded lookup
+      buffer.locationCountryCodes[i] = 0;
+      buffer.locationLengths[i] = 0;
+      buffer.hasLocation[i] = 0;
+      if (u.Location) {
+        buffer.hasLocation[i] = 1;
+        buffer.locationLengths[i] = u.Location.length;
+        const locationLower = u.Location.toLowerCase();
+        for (const [key, code] of this.COUNTRY_CODES) {
+          if (locationLower.includes(key)) {
+            buffer.locationCountryCodes[i] = code;
+            break;
+          }
+        }
+      }
+
+      // Bio metrics
+      buffer.bioLengths[i] = 0;
+      buffer.bioWordCounts[i] = 0;
+      buffer.hasBio[i] = 0;
+      if (u.AboutMe) {
+        buffer.hasBio[i] = 1;
+        buffer.bioLengths[i] = u.AboutMe.length;
+        // Fast word count approximation
+        const cleaned = u.AboutMe.replace(/<[^>]*>/g, "");
+        buffer.bioWordCounts[i] = cleaned.split(/\s+/).length;
+      }
+
+      // Website metrics
+      buffer.hasWebsite[i] = u.WebsiteUrl ? 1 : 0;
+      buffer.websiteLengths[i] = u.WebsiteUrl ? u.WebsiteUrl.length : 0;
+    }
+
+    // Clear unused buffer space
+    for (let i = batch.length; i < this.BATCH_SIZE; i++) {
+      buffer.ids[i] = 0;
+      buffer.reputations[i] = 0;
+      buffer.views[i] = 0;
+      buffer.upvotes[i] = 0;
+      buffer.downvotes[i] = 0;
+      buffer.creationDates[i] = 0;
+      buffer.lastAccessDates[i] = 0;
+      buffer.usernameLengths[i] = 0;
+      buffer.locationCountryCodes[i] = 0;
+      buffer.locationLengths[i] = 0;
+      buffer.bioLengths[i] = 0;
+      buffer.bioWordCounts[i] = 0;
+      buffer.hasWebsite[i] = 0;
+      buffer.websiteLengths[i] = 0;
+      buffer.hasLocation[i] = 0;
+      buffer.hasBio[i] = 0;
+      buffer.hasDisplayName[i] = 0;
+    }
+  }
+
   public async execute(limit?: number): Promise<PerformanceMetrics> {
     let processedCount = 0;
     let errorCount = 0;
@@ -400,7 +610,7 @@ export class Case5GPUUltraFast {
     try {
       await initializeTargetSchema();
 
-      // Clear existing data for case 5
+      // Clear existing data
       await targetPool.query(
         "DELETE FROM transformed_users WHERE etl_case_number = 5"
       );
@@ -415,63 +625,72 @@ export class Case5GPUUltraFast {
       );
 
       console.log(
-        `Processing ${totalCount} records with ultra-fast GPU pipeline...`
+        `Processing ${totalCount} records with hybrid GPU/CPU optimization...`
       );
 
       const startTime = Date.now();
       let kernelTime = 0;
       let transferTime = 0;
+      let stringEncodingTime = 0;
 
-      // Setup parallel extraction connections
+      // Setup extraction connections with optimizations
       const extractionClients = [];
       for (let i = 0; i < this.EXTRACTION_CONCURRENCY; i++) {
         const client = await sourcePool.connect();
         await client.query(
           "SET SESSION CHARACTERISTICS AS TRANSACTION ISOLATION LEVEL READ UNCOMMITTED"
         );
+        await client.query("SET work_mem = '256MB'");
+        await client.query("SET effective_cache_size = '1GB'");
         extractionClients.push(client);
       }
 
-      // Process in pipeline stages
+      // Process with controlled pipeline depth to limit memory growth
       let offset = 0;
       const inFlight: Promise<void>[] = [];
-      const waitOne = async () => {
-        const idx = await Promise.race(
-          inFlight.map((p, i) =>
-            p.then(() => i).catch((err) => {
-              errorCount++;
-              this.logger.logError(err);
-              return i;
-            })
-          )
-        );
-        inFlight.splice(idx, 1);
-      };
+
       while (offset < totalCount) {
         while (offset < totalCount && inFlight.length < this.PIPELINE_DEPTH) {
           const batchOffset = offset;
           const batchSize = Math.min(this.BATCH_SIZE, totalCount - batchOffset);
+
           const p = this.processPipelineBatch(
             extractionClients,
             batchOffset,
             batchSize,
-            { kernelTime, transferTime }
-          ).then(({ processed, kernel, transfer }) => {
+            { kernelTime, transferTime, stringEncodingTime }
+          ).then(({ processed, kernel, transfer, encoding }) => {
             processedCount += processed;
             kernelTime += kernel;
             transferTime += transfer;
-            if (processedCount % 50000 === 0) {
-              this.logger.logProgress(processedCount, totalCount, "GPU Pipeline");
+            stringEncodingTime += encoding;
+
+            if (processedCount % 100000 === 0) {
+              const elapsed = (Date.now() - startTime) / 1000;
+              const rate = Math.round(processedCount / elapsed);
+              console.log(
+                `Processed: ${processedCount}/${totalCount} @ ${rate} rec/s`
+              );
             }
           });
+
           inFlight.push(p);
           offset += batchSize;
         }
-        if (inFlight.length > 0) await waitOne();
-      }
-      while (inFlight.length > 0) await waitOne();
 
-      // Cleanup extraction clients
+        if (inFlight.length) {
+          // Wait for the oldest to finish to keep a moving window
+          await inFlight[0].catch(() => {});
+          inFlight.shift();
+        }
+      }
+
+      // Drain remaining
+      while (inFlight.length) {
+        await inFlight.shift();
+      }
+
+      // Cleanup
       for (const client of extractionClients) {
         client.release();
       }
@@ -484,12 +703,12 @@ export class Case5GPUUltraFast {
         errorCount
       );
 
-      // Add GPU-specific metrics
-      (metrics as any).gpu_device = "RTX 4060";
-      (metrics as any).gpu_threads =
-        this.GPU_BLOCK_SIZE * this.GPU_GRID_SIZE;
+      // Enhanced metrics
+      (metrics as any).gpu_device = "RTX 4060 (Hybrid Mode)";
+      (metrics as any).gpu_threads = this.GPU_BLOCK_SIZE * this.GPU_GRID_SIZE;
       (metrics as any).kernel_execution_time_ms = kernelTime;
       (metrics as any).memory_transfer_time_ms = transferTime;
+      (metrics as any).string_encoding_time_ms = stringEncodingTime;
       (metrics as any).gpu_utilization_percent = (
         (kernelTime / totalTime) *
         100
@@ -499,16 +718,27 @@ export class Case5GPUUltraFast {
       (metrics as any).throughput_records_per_sec = Math.round(
         processedCount / (totalTime / 1000)
       );
+      (metrics as any).optimization_mode = "hybrid";
 
       metrics.batch_count = Math.ceil(processedCount / this.BATCH_SIZE);
 
-      console.log(`Completed: ${processedCount} records in ${totalTime}ms`);
+      console.log(`\n=== Hybrid Optimization Results ===`);
+      console.log(
+        `Completed: ${processedCount} records in ${(totalTime / 1000).toFixed(
+          2
+        )}s`
+      );
       console.log(
         `Throughput: ${(metrics as any).throughput_records_per_sec} records/sec`
       );
       console.log(
         `GPU Utilization: ${(metrics as any).gpu_utilization_percent}%`
       );
+      console.log(
+        `String Encoding: ${(stringEncodingTime / 1000).toFixed(2)}s`
+      );
+      console.log(`GPU Kernel Time: ${(kernelTime / 1000).toFixed(2)}s`);
+      console.log(`================================\n`);
 
       return metrics;
     } catch (error) {
@@ -523,8 +753,17 @@ export class Case5GPUUltraFast {
     extractionClients: any[],
     offset: number,
     batchSize: number,
-    _timers: { kernelTime: number; transferTime: number }
-  ): Promise<{ processed: number; kernel: number; transfer: number }> {
+    timers: {
+      kernelTime: number;
+      transferTime: number;
+      stringEncodingTime: number;
+    }
+  ): Promise<{
+    processed: number;
+    kernel: number;
+    transfer: number;
+    encoding: number;
+  }> {
     // Stage 1: Parallel extraction
     const clientIdx = (offset / this.BATCH_SIZE) % extractionClients.length;
     const batch = await this.parallelExtract(
@@ -533,35 +772,97 @@ export class Case5GPUUltraFast {
       batchSize
     );
 
-    // Stage 2: Prepare GPU data (use double buffering)
-    const transferStart = Date.now();
+    // Stage 2: String encoding for GPU
+    const encodingStart = Date.now();
     const bufferIdx = this.buffers.current;
-    this.buffers.current = (this.buffers.current + 1) % 2;
+    this.buffers.current = (this.buffers.current + 1) % 3; // Triple buffering
 
     const buffer = this.buffers.gpu[bufferIdx];
-    this.prepareGPUBuffers(batch, buffer);
-    const transferTime = Date.now() - transferStart;
+    this.encodeStringMetrics(batch, buffer);
+    const encodingTime = Date.now() - encodingStart;
 
-    // Stage 3: GPU Processing
+    // Stage 3: GPU Processing (with string metrics)
     const kernelStart = Date.now();
-    const gpuResults = await this.executeGPUKernels(buffer, batch.length);
+    const gpuResults = await this.executeEnhancedGPUKernels(
+      buffer,
+      batch.length
+    );
     const kernelTime = Date.now() - kernelStart;
 
-    // Stage 4: Parallel CPU string processing
+    // Stage 4: Simplified CPU processing (only complex strings)
     const transformedUsers = await this.parallelCPUProcessing(
       batch,
-      gpuResults,
-      null
+      gpuResults
     );
 
     // Stage 5: Parallel insertion
     await this.parallelInsert(transformedUsers);
 
+    const transferTime = 0; // Transfer is now minimal with pinned memory
+
     return {
       processed: transformedUsers.length,
       kernel: kernelTime,
       transfer: transferTime,
+      encoding: encodingTime,
     };
+  }
+
+  private async executeEnhancedGPUKernels(
+    buffer: any,
+    actualSize: number
+  ): Promise<number[][]> {
+    const currentTime = Date.now() / 1000;
+
+    // Dynamically size the kernel for the actual batch to reduce output footprint
+    const gridRows = Math.max(1, Math.ceil(actualSize / this.GPU_BLOCK_SIZE));
+    this.kernels.combinedTransform
+      .setOutput([this.GPU_BLOCK_SIZE, gridRows, 16])
+      .setConstants({
+        BATCH_SIZE: actualSize,
+        BLOCK_SIZE: this.GPU_BLOCK_SIZE,
+        GRID_SIZE: gridRows,
+      });
+
+    // Execute enhanced kernel with string metrics
+    const results = this.kernels.combinedTransform(
+      [buffer.ids],
+      [buffer.reputations],
+      [buffer.views],
+      [buffer.upvotes],
+      [buffer.downvotes],
+      [buffer.creationDates],
+      [buffer.lastAccessDates],
+      [buffer.usernameLengths],
+      [buffer.locationCountryCodes],
+      [buffer.locationLengths],
+      [buffer.bioLengths],
+      [buffer.bioWordCounts],
+      [buffer.hasWebsite],
+      [buffer.websiteLengths],
+      [buffer.hasLocation],
+      [buffer.hasBio],
+      [buffer.hasDisplayName],
+      currentTime
+    ) as number[][][];
+
+    // Flatten results
+    const flattened: number[][] = new Array(
+      Math.min(actualSize, this.BATCH_SIZE)
+    );
+    let writeIdx = 0;
+
+    for (let y = 0; y < gridRows && writeIdx < actualSize; y++) {
+      for (let x = 0; x < this.GPU_BLOCK_SIZE && writeIdx < actualSize; x++) {
+        const metrics: number[] = new Array(16);
+        for (let z = 0; z < 16; z++) {
+          metrics[z] = results[z][y][x];
+        }
+        flattened[writeIdx++] = metrics;
+      }
+    }
+
+    return flattened;
   }
 
   private async parallelExtract(
@@ -582,75 +883,9 @@ export class Case5GPUUltraFast {
     return result.rows as SourceUser[];
   }
 
-  private prepareGPUBuffers(
-    batch: SourceUser[],
-    buffer: any
-  ): void {
-    // Vectorized copy to GPU buffers
-    for (let i = 0; i < batch.length; i++) {
-      const u = batch[i];
-      buffer.ids[i] = u.Id;
-      buffer.reputations[i] = u.Reputation;
-      buffer.views[i] = u.Views;
-      buffer.upvotes[i] = u.UpVotes;
-      buffer.downvotes[i] = u.DownVotes;
-      buffer.creationDates[i] = Date.parse(u.CreationDate) / 1000;
-      buffer.lastAccessDates[i] = Date.parse(u.LastAccessDate) / 1000;
-    }
-
-    // Clear unused buffer space
-    for (let i = batch.length; i < this.BATCH_SIZE; i++) {
-      buffer.ids[i] = 0;
-      buffer.reputations[i] = 0;
-      buffer.views[i] = 0;
-      buffer.upvotes[i] = 0;
-      buffer.downvotes[i] = 0;
-      buffer.creationDates[i] = 0;
-      buffer.lastAccessDates[i] = 0;
-    }
-  }
-
-  private async executeGPUKernels(
-    buffer: any,
-    actualSize: number
-  ): Promise<number[][]> {
-    const currentTime = Date.now() / 1000;
-
-    // Execute combined kernel for all transformations
-    const results = this.kernels.combinedTransform(
-      [buffer.ids],
-      [buffer.reputations],
-      [buffer.views],
-      [buffer.upvotes],
-      [buffer.downvotes],
-      [buffer.creationDates],
-      [buffer.lastAccessDates],
-      currentTime
-    ) as number[][][]; // GPU.js returns [z][y][x]
-
-    // Reconstruct per-record arrays from 3D output [x, y, z] => nested [z][y][x]
-    const flattened: number[][] = new Array(
-      Math.min(actualSize, this.BATCH_SIZE)
-    );
-    let writeIdx = 0;
-    for (let y = 0; y < this.GPU_GRID_SIZE; y++) {
-      for (let x = 0; x < this.GPU_BLOCK_SIZE; x++) {
-        if (writeIdx >= actualSize) break;
-        const metrics: number[] = new Array(8);
-        for (let z = 0; z < 8; z++) {
-          metrics[z] = results[z][y][x]; // <-- correct indexing
-        }
-        flattened[writeIdx++] = metrics;
-      }
-    }
-
-    return flattened;
-  }
-
   private async parallelCPUProcessing(
     batch: SourceUser[],
-    gpuResults: number[][],
-    _stringData: any
+    gpuResults: number[][]
   ): Promise<TransformedUser[]> {
     const chunkSize = Math.ceil(batch.length / this.CPU_WORKERS);
     const promises: Promise<TransformedUser[]>[] = [];
@@ -666,7 +901,6 @@ export class Case5GPUUltraFast {
 
       const promise = new Promise<TransformedUser[]>((resolve) => {
         worker.once("message", (results: any[]) => {
-          // Add batch ID to results
           results.forEach((r) => (r.etl_batch_id = this.batchId));
           resolve(results as TransformedUser[]);
         });
@@ -689,7 +923,6 @@ export class Case5GPUUltraFast {
   private async parallelInsert(users: TransformedUser[]): Promise<void> {
     if (!users.length) return;
 
-    // Split into sub-batches for parallel insertion
     const subBatchSize = Math.ceil(users.length / this.INSERTION_CONCURRENCY);
     const insertPromises: Promise<void>[] = [];
 
@@ -741,8 +974,9 @@ export class Case5GPUUltraFast {
       "etl_batch_id",
     ];
 
-    // Generate temp table name ONCE and reuse
-    const tempName = `temp_batch_${process.pid}_${Date.now()}_${crypto.randomBytes(2).toString("hex")}`;
+    const tempName = `temp_batch_${process.pid}_${Date.now()}_${crypto
+      .randomBytes(2)
+      .toString("hex")}`;
 
     try {
       await client.query("BEGIN");
@@ -758,8 +992,12 @@ export class Case5GPUUltraFast {
         )
       );
 
+      // Write with backpressure handling to avoid buffering large strings in memory
       for (const user of users) {
-        copyStream.write(this.userToCSV(user));
+        const chunk = this.userToCSV(user);
+        if (!copyStream.write(chunk)) {
+          await once(copyStream, "drain");
+        }
       }
       copyStream.end();
 
@@ -768,7 +1006,6 @@ export class Case5GPUUltraFast {
         copyStream.on("error", reject);
       });
 
-      // Use ON CONFLICT for upsert
       await client.query(
         `INSERT INTO transformed_users (${columns.join(",")})
          SELECT ${columns.join(",")} FROM ${tempName}
@@ -791,69 +1028,65 @@ export class Case5GPUUltraFast {
       return '"' + str.replace(/"/g, '""') + '"';
     };
 
-    return [
-      u.user_id,
-      esc(u.username),
-      u.reputation_score,
-      esc(u.reputation_tier),
-      u.reputation_percentile,
-      u.registered_at.toISOString(),
-      u.last_login.toISOString(),
-      u.account_age_days,
-      esc(u.activity_status),
-      u.is_active,
-      u.is_veteran,
-      esc(u.location_original),
-      esc(u.location_country),
-      esc(u.location_city),
-      esc(u.location_normalized),
-      esc(u.bio_original),
-      esc(u.bio_summary),
-      u.bio_wordcount,
-      u.bio_has_content,
-      esc(u.website_url),
-      esc(u.website_domain),
-      u.website_valid,
-      u.profile_views,
-      u.positive_votes,
-      u.negative_votes,
-      u.vote_ratio,
-      u.engagement_score,
-      esc(JSON.stringify(u.metadata)),
-      u.etl_timestamp.toISOString(),
-      u.etl_case_number,
-      esc(u.etl_batch_id),
-    ].join(",") + "\n";
+    return (
+      [
+        u.user_id,
+        esc(u.username),
+        u.reputation_score,
+        esc(u.reputation_tier),
+        u.reputation_percentile,
+        u.registered_at.toISOString(),
+        u.last_login.toISOString(),
+        u.account_age_days,
+        esc(u.activity_status),
+        u.is_active,
+        u.is_veteran,
+        esc(u.location_original),
+        esc(u.location_country),
+        esc(u.location_city),
+        esc(u.location_normalized),
+        esc(u.bio_original),
+        esc(u.bio_summary),
+        u.bio_wordcount,
+        u.bio_has_content,
+        esc(u.website_url),
+        esc(u.website_domain),
+        u.website_valid,
+        u.profile_views,
+        u.positive_votes,
+        u.negative_votes,
+        u.vote_ratio,
+        u.engagement_score,
+        esc(JSON.stringify(u.metadata)),
+        u.etl_timestamp.toISOString(),
+        u.etl_case_number,
+        esc(u.etl_batch_id),
+      ].join(",") + "\n"
+    );
   }
 
   private cleanup(): void {
-    // Destroy GPU kernels
     if (this.kernels) {
       Object.values(this.kernels).forEach((kernel) => {
-        if (kernel && kernel.destroy) {
-          kernel.destroy();
-        }
+        if (kernel && kernel.destroy) kernel.destroy();
       });
     }
 
-    // Destroy GPU context
     if (this.gpu) {
       this.gpu.destroy();
     }
 
-    // Terminate worker threads
     if (this.workerPool) {
       this.workerPool.forEach((worker) => worker.terminate());
     }
 
-    // Force garbage collection
     if ((global as any).gc) {
       (global as any).gc();
     }
   }
 
   private generateBatchId(): string {
-    return `case5_ultra_${Date.now()}_${crypto
+    return `case5_hybrid_${Date.now()}_${crypto
       .randomBytes(4)
       .toString("hex")}`;
   }

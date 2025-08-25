@@ -1,0 +1,19 @@
+{
+  "case_number": 5,
+  "case_name": "GPU Hybrid Optimized",
+  "start_time": "2025-08-25T21:05:32.587Z",
+  "memory_start_mb": 18.38086700439453,
+  "detailed_timings": [],
+  "end_time": "2025-08-25T21:06:03.302Z",
+  "total_duration_ms": 30715,
+  "total_records": 671744,
+  "records_per_second": 21870.226273807584,
+  "memory_peak_mb": 329.7868347167969,
+  "memory_end_mb": 197.6585693359375,
+  "cpu_user_ms": 24172,
+  "cpu_system_ms": 10609,
+  "error_count": 0,
+  "extract_duration_ms": 0,
+  "transform_duration_ms": 0,
+  "load_duration_ms": 0
+}

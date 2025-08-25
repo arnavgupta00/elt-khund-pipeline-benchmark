@@ -1,0 +1,26 @@
+{
+  "case_number": 3,
+  "case_name": "Multi-threaded Pipeline",
+  "start_time": "2025-08-25T20:26:33.950Z",
+  "memory_start_mb": 16.73224639892578,
+  "detailed_timings": [
+    {
+      "phase": "Pipeline",
+      "duration_ms": 127770,
+      "records": 658268,
+      "timestamp": "2025-08-25T20:28:41.720Z"
+    }
+  ],
+  "end_time": "2025-08-25T20:28:41.720Z",
+  "total_duration_ms": 127770,
+  "total_records": 658268,
+  "records_per_second": 5151.976207247398,
+  "memory_peak_mb": 39.913429260253906,
+  "memory_end_mb": 27.867584228515625,
+  "cpu_user_ms": 59375,
+  "cpu_system_ms": 17015,
+  "error_count": 0,
+  "extract_duration_ms": 0,
+  "transform_duration_ms": 0,
+  "load_duration_ms": 0
+}
