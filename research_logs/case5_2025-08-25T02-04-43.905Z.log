@@ -1,0 +1,4 @@
+{"level":"info","memory_mb":18.024185180664062,"message":"Phase started: GPU Initialization","phase":"GPU Initialization","timestamp":1340}
+{"duration_ms":1342,"level":"info","memory_mb":18.084617614746094,"message":"Phase completed: GPU Initialization","phase":"GPU Initialization","timestamp":"2025-08-25T02:04:45.259Z"}
+{"level":"info","memory_mb":18.148094177246094,"message":"Phase started: extract batch","phase":"extract batch","timestamp":1344}
+{"duration_ms":1549,"level":"info","memory_mb":31.965530395507812,"message":"Phase completed: extract batch","phase":"extract batch","records":20000,"timestamp":"2025-08-25T02:04:45.466Z"}

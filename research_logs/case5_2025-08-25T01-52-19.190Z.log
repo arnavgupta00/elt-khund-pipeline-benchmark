@@ -1,0 +1,37 @@
+{"level":"info","memory_mb":17.94475555419922,"message":"Phase started: GPU Initialization","phase":"GPU Initialization","timestamp":1005}
+{"duration_ms":1007,"level":"info","memory_mb":17.999794006347656,"message":"Phase completed: GPU Initialization","phase":"GPU Initialization","timestamp":"2025-08-25T01:52:20.212Z"}
+{"level":"info","memory_mb":18.035980224609375,"message":"Phase started: extract batch","phase":"extract batch","timestamp":1008}
+{"duration_ms":1390,"level":"info","memory_mb":51.100189208984375,"message":"Phase completed: extract batch","phase":"extract batch","records":60000,"timestamp":"2025-08-25T01:52:20.594Z"}
+{"current":60000,"eta_seconds":"83","level":"info","memory_mb":125.79389190673828,"message":"Progress: GPU Pipeline","percentage":"9.23%","rate_per_second":"7097.23","timestamp":"2025-08-25T01:52:27.658Z","total":650000}
+{"level":"info","memory_mb":125.81732940673828,"message":"Phase started: extract batch","phase":"extract batch","timestamp":8454}
+{"duration_ms":8816,"level":"info","memory_mb":155.00399017333984,"message":"Phase completed: extract batch","phase":"extract batch","records":60000,"timestamp":"2025-08-25T01:52:28.020Z"}
+{"current":120000,"eta_seconds":"68","level":"info","memory_mb":187.9125213623047,"message":"Progress: GPU Pipeline","percentage":"18.46%","rate_per_second":"7772.52","timestamp":"2025-08-25T01:52:34.643Z","total":650000}
+{"level":"info","memory_mb":187.9466552734375,"message":"Phase started: extract batch","phase":"extract batch","timestamp":15440}
+{"duration_ms":15802,"level":"info","memory_mb":211.0399627685547,"message":"Phase completed: extract batch","phase":"extract batch","records":60000,"timestamp":"2025-08-25T01:52:35.006Z"}
+{"current":180000,"eta_seconds":"59","level":"info","memory_mb":123.02005767822266,"message":"Progress: GPU Pipeline","percentage":"27.69%","rate_per_second":"7967.07","timestamp":"2025-08-25T01:52:41.797Z","total":650000}
+{"level":"info","memory_mb":123.04277801513672,"message":"Phase started: extract batch","phase":"extract batch","timestamp":22594}
+{"duration_ms":22983,"level":"info","memory_mb":145.24011993408203,"message":"Phase completed: extract batch","phase":"extract batch","records":60000,"timestamp":"2025-08-25T01:52:42.187Z"}
+{"current":240000,"eta_seconds":"51","level":"info","memory_mb":216.156494140625,"message":"Progress: GPU Pipeline","percentage":"36.92%","rate_per_second":"8108.38","timestamp":"2025-08-25T01:52:48.803Z","total":650000}
+{"level":"info","memory_mb":216.17542266845703,"message":"Phase started: extract batch","phase":"extract batch","timestamp":29599}
+{"duration_ms":29972,"level":"info","memory_mb":239.50492095947266,"message":"Phase completed: extract batch","phase":"extract batch","records":60000,"timestamp":"2025-08-25T01:52:49.176Z"}
+{"current":300000,"eta_seconds":"43","level":"info","memory_mb":122.98584747314453,"message":"Progress: GPU Pipeline","percentage":"46.15%","rate_per_second":"8223.68","timestamp":"2025-08-25T01:52:55.684Z","total":650000}
+{"level":"info","memory_mb":123.32209014892578,"message":"Phase started: extract batch","phase":"extract batch","timestamp":36482}
+{"duration_ms":36926,"level":"info","memory_mb":147.66453552246094,"message":"Phase completed: extract batch","phase":"extract batch","records":60000,"timestamp":"2025-08-25T01:52:56.131Z"}
+{"current":360000,"eta_seconds":"35","level":"info","memory_mb":214.14120483398438,"message":"Progress: GPU Pipeline","percentage":"55.38%","rate_per_second":"8286.91","timestamp":"2025-08-25T01:53:02.646Z","total":650000}
+{"level":"info","memory_mb":214.15274810791016,"message":"Phase started: extract batch","phase":"extract batch","timestamp":43442}
+{"duration_ms":43848,"level":"info","memory_mb":239.59375,"message":"Phase completed: extract batch","phase":"extract batch","records":60000,"timestamp":"2025-08-25T01:53:03.052Z"}
+{"current":420000,"eta_seconds":"28","level":"info","memory_mb":114.98828887939453,"message":"Progress: GPU Pipeline","percentage":"64.62%","rate_per_second":"8351.23","timestamp":"2025-08-25T01:53:09.496Z","total":650000}
+{"level":"info","memory_mb":115.0101089477539,"message":"Phase started: extract batch","phase":"extract batch","timestamp":50292}
+{"duration_ms":50693,"level":"info","memory_mb":139.34246063232422,"message":"Phase completed: extract batch","phase":"extract batch","records":60000,"timestamp":"2025-08-25T01:53:09.897Z"}
+{"current":480000,"eta_seconds":"20","level":"info","memory_mb":217.47284698486328,"message":"Progress: GPU Pipeline","percentage":"73.85%","rate_per_second":"8430.22","timestamp":"2025-08-25T01:53:16.142Z","total":650000}
+{"level":"info","memory_mb":217.48423767089844,"message":"Phase started: extract batch","phase":"extract batch","timestamp":56938}
+{"duration_ms":57401,"level":"info","memory_mb":238.5702133178711,"message":"Phase completed: extract batch","phase":"extract batch","records":60000,"timestamp":"2025-08-25T01:53:16.605Z"}
+{"current":540000,"eta_seconds":"13","level":"info","memory_mb":123.45865631103516,"message":"Progress: GPU Pipeline","percentage":"83.08%","rate_per_second":"8472.58","timestamp":"2025-08-25T01:53:22.939Z","total":650000}
+{"level":"info","memory_mb":123.48406982421875,"message":"Phase started: extract batch","phase":"extract batch","timestamp":63735}
+{"duration_ms":64169,"level":"info","memory_mb":144.11947631835938,"message":"Phase completed: extract batch","phase":"extract batch","records":60000,"timestamp":"2025-08-25T01:53:23.373Z"}
+{"current":600000,"eta_seconds":"6","level":"info","memory_mb":212.45623016357422,"message":"Progress: GPU Pipeline","percentage":"92.31%","rate_per_second":"8529.03","timestamp":"2025-08-25T01:53:29.552Z","total":650000}
+{"level":"info","memory_mb":212.7733612060547,"message":"Phase started: extract batch","phase":"extract batch","timestamp":70349}
+{"duration_ms":70754,"level":"info","memory_mb":237.55335235595703,"message":"Phase completed: extract batch","phase":"extract batch","records":50000,"timestamp":"2025-08-25T01:53:29.958Z"}
+{"current":650000,"eta_seconds":"0","level":"info","memory_mb":100.57006072998047,"message":"Progress: GPU Pipeline","percentage":"100.00%","rate_per_second":"8611.55","timestamp":"2025-08-25T01:53:34.684Z","total":650000}
+{"duration_ms":75481,"level":"info","memory_mb":100.91043090820312,"message":"Phase completed: GPU Pipeline","phase":"GPU Pipeline","records":650000,"timestamp":"2025-08-25T01:53:34.685Z"}
+{"cpu_seconds":"70.03","error_count":0,"level":"info","memory_peak_mb":"299.70","message":"ETL Process Completed","records_per_second":"8611.44","timestamp":"2025-08-25T01:53:34.686Z","total_duration_seconds":"75.48","total_records":650000}

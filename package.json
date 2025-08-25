@@ -15,11 +15,11 @@
     "csv-parser": "^3.0.0",
     "csv-writer": "^1.6.0",
     "dotenv": "^16.3.1",
+    "gpu.js": "^2.16.0",
     "p-queue": "^7.4.1",
     "pg": "^8.11.3",
     "pg-copy-streams": "^6.0.6",
     "pg-cursor": "^2.10.3",
-    "gpu.js": "^2.16.0",
     "uuid": "^9.0.1",
     "winston": "^3.11.0"
   },
@@ -27,6 +27,7 @@
     "@types/node": "^20.10.5",
     "@types/pg": "^8.10.9",
     "@types/pg-copy-streams": "^1.2.5",
+    "@types/pg-cursor": "^2.7.2",
     "tsx": "^4.6.2",
     "typescript": "^5.3.3",
     "wrangler": "^3.22.1"

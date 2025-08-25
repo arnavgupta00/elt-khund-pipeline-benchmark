@@ -1,0 +1,97 @@
+{
+  "case_number": 5,
+  "case_name": "GPU Accelerated Processing",
+  "start_time": "2025-08-25T01:52:19.204Z",
+  "memory_start_mb": 17.54651641845703,
+  "detailed_timings": [
+    {
+      "phase": "GPU Initialization",
+      "duration_ms": 1007,
+      "timestamp": "2025-08-25T01:52:20.212Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 1390,
+      "records": 60000,
+      "timestamp": "2025-08-25T01:52:20.594Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 8816,
+      "records": 60000,
+      "timestamp": "2025-08-25T01:52:28.020Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 15802,
+      "records": 60000,
+      "timestamp": "2025-08-25T01:52:35.007Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 22983,
+      "records": 60000,
+      "timestamp": "2025-08-25T01:52:42.188Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 29972,
+      "records": 60000,
+      "timestamp": "2025-08-25T01:52:49.177Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 36926,
+      "records": 60000,
+      "timestamp": "2025-08-25T01:52:56.131Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 43848,
+      "records": 60000,
+      "timestamp": "2025-08-25T01:53:03.052Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 50693,
+      "records": 60000,
+      "timestamp": "2025-08-25T01:53:09.897Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 57401,
+      "records": 60000,
+      "timestamp": "2025-08-25T01:53:16.605Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 64169,
+      "records": 60000,
+      "timestamp": "2025-08-25T01:53:23.374Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 70754,
+      "records": 50000,
+      "timestamp": "2025-08-25T01:53:29.959Z"
+    },
+    {
+      "phase": "GPU Pipeline",
+      "duration_ms": 75481,
+      "records": 650000,
+      "timestamp": "2025-08-25T01:53:34.685Z"
+    }
+  ],
+  "end_time": "2025-08-25T01:53:34.685Z",
+  "total_duration_ms": 75481,
+  "total_records": 650000,
+  "records_per_second": 8611.438640187598,
+  "memory_peak_mb": 299.70301818847656,
+  "memory_end_mb": 100.92841339111328,
+  "cpu_user_ms": 60281,
+  "cpu_system_ms": 9750,
+  "error_count": 0,
+  "extract_duration_ms": 402754,
+  "transform_duration_ms": 0,
+  "load_duration_ms": 0
+}

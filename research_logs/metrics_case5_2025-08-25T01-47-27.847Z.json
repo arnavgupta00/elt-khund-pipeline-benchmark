@@ -1,0 +1,43 @@
+{
+  "case_number": 5,
+  "case_name": "GPU Accelerated Processing",
+  "start_time": "2025-08-25T01:47:27.858Z",
+  "memory_start_mb": 17.77613067626953,
+  "detailed_timings": [
+    {
+      "phase": "GPU Initialization",
+      "duration_ms": 303,
+      "timestamp": "2025-08-25T01:47:28.162Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 453,
+      "records": 10000,
+      "timestamp": "2025-08-25T01:47:28.311Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 1245,
+      "records": 10000,
+      "timestamp": "2025-08-25T01:47:29.104Z"
+    },
+    {
+      "phase": "GPU Pipeline",
+      "duration_ms": 1838,
+      "records": 20000,
+      "timestamp": "2025-08-25T01:47:29.697Z"
+    }
+  ],
+  "end_time": "2025-08-25T01:47:29.697Z",
+  "total_duration_ms": 1839,
+  "total_records": 20000,
+  "records_per_second": 10875.475802066341,
+  "memory_peak_mb": 53.32128143310547,
+  "memory_end_mb": 53.37726593017578,
+  "cpu_user_ms": 1016,
+  "cpu_system_ms": 391,
+  "error_count": 0,
+  "extract_duration_ms": 1698,
+  "transform_duration_ms": 0,
+  "load_duration_ms": 0
+}

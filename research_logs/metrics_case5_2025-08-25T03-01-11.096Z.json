@@ -1,0 +1,19 @@
+{
+  "case_number": 5,
+  "case_name": "GPU Ultra-Fast Processing",
+  "start_time": "2025-08-25T03:01:11.112Z",
+  "memory_start_mb": 16.831398010253906,
+  "detailed_timings": [],
+  "end_time": "2025-08-25T03:01:36.488Z",
+  "total_duration_ms": 25376,
+  "total_records": 655360,
+  "records_per_second": 25825.977301387135,
+  "memory_peak_mb": 274.85376739501953,
+  "memory_end_mb": 128.3895034790039,
+  "cpu_user_ms": 22828,
+  "cpu_system_ms": 8985,
+  "error_count": 0,
+  "extract_duration_ms": 0,
+  "transform_duration_ms": 0,
+  "load_duration_ms": 0
+}

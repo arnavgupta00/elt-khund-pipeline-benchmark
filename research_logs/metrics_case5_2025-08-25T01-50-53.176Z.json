@@ -1,0 +1,229 @@
+{
+  "case_number": 5,
+  "case_name": "GPU Accelerated Processing",
+  "start_time": "2025-08-25T01:50:53.187Z",
+  "memory_start_mb": 17.58068084716797,
+  "detailed_timings": [
+    {
+      "phase": "GPU Initialization",
+      "duration_ms": 579,
+      "timestamp": "2025-08-25T01:50:53.766Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 781,
+      "records": 20000,
+      "timestamp": "2025-08-25T01:50:53.968Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 2667,
+      "records": 20000,
+      "timestamp": "2025-08-25T01:50:55.853Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 4249,
+      "records": 20000,
+      "timestamp": "2025-08-25T01:50:57.436Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 5695,
+      "records": 20000,
+      "timestamp": "2025-08-25T01:50:58.881Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 7174,
+      "records": 20000,
+      "timestamp": "2025-08-25T01:51:00.361Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 8521,
+      "records": 20000,
+      "timestamp": "2025-08-25T01:51:01.707Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 9994,
+      "records": 20000,
+      "timestamp": "2025-08-25T01:51:03.180Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 11429,
+      "records": 20000,
+      "timestamp": "2025-08-25T01:51:04.615Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 13057,
+      "records": 20000,
+      "timestamp": "2025-08-25T01:51:06.244Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 14505,
+      "records": 20000,
+      "timestamp": "2025-08-25T01:51:07.691Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 15870,
+      "records": 20000,
+      "timestamp": "2025-08-25T01:51:09.057Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 17477,
+      "records": 20000,
+      "timestamp": "2025-08-25T01:51:10.663Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 18966,
+      "records": 20000,
+      "timestamp": "2025-08-25T01:51:12.152Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 20373,
+      "records": 20000,
+      "timestamp": "2025-08-25T01:51:13.559Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 21757,
+      "records": 20000,
+      "timestamp": "2025-08-25T01:51:14.944Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 23186,
+      "records": 20000,
+      "timestamp": "2025-08-25T01:51:16.373Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 24642,
+      "records": 20000,
+      "timestamp": "2025-08-25T01:51:17.828Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 26037,
+      "records": 20000,
+      "timestamp": "2025-08-25T01:51:19.223Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 27403,
+      "records": 20000,
+      "timestamp": "2025-08-25T01:51:20.589Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 28759,
+      "records": 20000,
+      "timestamp": "2025-08-25T01:51:21.945Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 30138,
+      "records": 20000,
+      "timestamp": "2025-08-25T01:51:23.324Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 31662,
+      "records": 20000,
+      "timestamp": "2025-08-25T01:51:24.848Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 33053,
+      "records": 20000,
+      "timestamp": "2025-08-25T01:51:26.239Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 34481,
+      "records": 20000,
+      "timestamp": "2025-08-25T01:51:27.667Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 35874,
+      "records": 20000,
+      "timestamp": "2025-08-25T01:51:29.060Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 37281,
+      "records": 20000,
+      "timestamp": "2025-08-25T01:51:30.468Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 38813,
+      "records": 20000,
+      "timestamp": "2025-08-25T01:51:31.999Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 40178,
+      "records": 20000,
+      "timestamp": "2025-08-25T01:51:33.364Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 41605,
+      "records": 20000,
+      "timestamp": "2025-08-25T01:51:34.792Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 42967,
+      "records": 20000,
+      "timestamp": "2025-08-25T01:51:36.154Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 44369,
+      "records": 20000,
+      "timestamp": "2025-08-25T01:51:37.555Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 45809,
+      "records": 20000,
+      "timestamp": "2025-08-25T01:51:38.995Z"
+    },
+    {
+      "phase": "extract batch",
+      "duration_ms": 47184,
+      "records": 10000,
+      "timestamp": "2025-08-25T01:51:40.371Z"
+    },
+    {
+      "phase": "GPU Pipeline",
+      "duration_ms": 47434,
+      "records": 650000,
+      "timestamp": "2025-08-25T01:51:40.620Z"
+    }
+  ],
+  "end_time": "2025-08-25T01:51:40.620Z",
+  "total_duration_ms": 47434,
+  "total_records": 650000,
+  "records_per_second": 13703.250832736014,
+  "memory_peak_mb": 180.92658233642578,
+  "memory_end_mb": 77.61420440673828,
+  "cpu_user_ms": 28797,
+  "cpu_system_ms": 9047,
+  "error_count": 0,
+  "extract_duration_ms": 805956,
+  "transform_duration_ms": 0,
+  "load_duration_ms": 0
+}

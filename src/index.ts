@@ -2,7 +2,7 @@ import { Case1Sequential } from './cases/case1-sequential';
 import { Case2Bulk } from './cases/case2-bulk';
 import { Case3Pipeline } from './cases/case3-pipeline';
 import { Case4aEdge } from './cases/case4a-edge';
-import { Case5GPU } from './cases/case5-gpu';
+import { Case5GPUUltraFast } from './cases/case5-gpu';
 import { sourcePool, targetPool } from './config/database';
 import * as fs from 'fs';
 import * as path from 'path';
@@ -59,7 +59,7 @@ async function main() {
 
     if (caseNumber === '5' || caseNumber === 'all') {
       console.log('\nExecuting Case 5: GPU Accelerated Processing...');
-      const case5 = new Case5GPU();
+      const case5 = new Case5GPUUltraFast();
       const metrics = await case5.execute(limit);
       results.push(metrics);
       console.log('Case 5 completed!\n');
