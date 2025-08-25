@@ -32,13 +32,6 @@ This project benchmarks four distinct ETL implementation strategies to analyze t
 
 ## 📈 Performance Results
 
-With \~3 million user records:
-
-* **Sequential**: \~45-60 minutes (baseline)
-* **Bulk**: \~8-12 minutes (5x faster)
-* **Multi-threaded**: \~5-8 minutes (8x faster)
-* **Edge Computing**: \~3-6 minutes (12x faster)
-
 With **test dataset of \~650,000 records**:
 
 * **Sequential**: \~230s (≈2822 recs/sec)
