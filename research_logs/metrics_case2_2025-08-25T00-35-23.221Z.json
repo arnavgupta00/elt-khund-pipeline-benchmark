@@ -1,0 +1,38 @@
+{
+  "case_number": 2,
+  "case_name": "Bulk File Export/Import",
+  "start_time": "2025-08-25T00:35:23.222Z",
+  "memory_start_mb": 314.5704879760742,
+  "detailed_timings": [
+    {
+      "phase": "Export",
+      "duration_ms": 4787,
+      "records": 650000,
+      "timestamp": "2025-08-25T00:35:28.010Z"
+    },
+    {
+      "phase": "Transform",
+      "duration_ms": 16261,
+      "records": 650000,
+      "timestamp": "2025-08-25T00:35:39.483Z"
+    },
+    {
+      "phase": "Load",
+      "duration_ms": 27116,
+      "records": 650000,
+      "timestamp": "2025-08-25T00:35:50.339Z"
+    }
+  ],
+  "end_time": "2025-08-25T00:35:50.368Z",
+  "total_duration_ms": 27146,
+  "total_records": 650000,
+  "records_per_second": 23944.595888897074,
+  "memory_peak_mb": 2692.253463745117,
+  "memory_end_mb": 2324.1744232177734,
+  "cpu_user_ms": 19468,
+  "cpu_system_ms": 1641,
+  "error_count": 0,
+  "extract_duration_ms": 0,
+  "transform_duration_ms": 0,
+  "load_duration_ms": 0
+}

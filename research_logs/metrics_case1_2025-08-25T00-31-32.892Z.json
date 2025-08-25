@@ -1,0 +1,32 @@
+{
+  "case_number": 1,
+  "case_name": "Sequential Row-by-Row",
+  "start_time": "2025-08-25T00:31:32.909Z",
+  "memory_start_mb": 13.519126892089844,
+  "detailed_timings": [
+    {
+      "phase": "Count",
+      "duration_ms": 866,
+      "records": 650000,
+      "timestamp": "2025-08-25T00:31:33.775Z"
+    },
+    {
+      "phase": "Process",
+      "duration_ms": 230310,
+      "records": 650000,
+      "timestamp": "2025-08-25T00:35:23.219Z"
+    }
+  ],
+  "end_time": "2025-08-25T00:35:23.219Z",
+  "total_duration_ms": 230311,
+  "total_records": 650000,
+  "records_per_second": 2822.27075563043,
+  "memory_peak_mb": 339.75091552734375,
+  "memory_end_mb": 314.4715042114258,
+  "cpu_user_ms": 56860,
+  "cpu_system_ms": 24343,
+  "error_count": 0,
+  "extract_duration_ms": 0,
+  "transform_duration_ms": 0,
+  "load_duration_ms": 0
+}
